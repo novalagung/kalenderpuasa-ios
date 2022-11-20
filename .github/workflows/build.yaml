@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions a tab
+  # allows you to run this workflow manually from the Actions a tab
   workflow_dispatch:
 
 jobs:
@@ -13,12 +13,19 @@ jobs:
     name: Release binary and push it to AppStore
     runs-on: macos-11
     steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
+      - name: "Check out source code"
+        uses: actions/checkout@v2
+      - name: "Install ruby"
+        working-directory: ./mobileapp
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
-      - run: echo '${{ secrets.GOOGLE_SERVICE_INFO }}' > "./Kalender Puasa/GoogleService-Info.plist"
-      - uses: maierj/fastlane-action@v2.3.0
+      - name: "Prepare GoogleService-Info.plist"
+        working-directory: ./mobileapp
+        run: echo '${{ secrets.GOOGLE_SERVICE_INFO }}' > "./Kalender Puasa/GoogleService-Info.plist"
+      - name: "Fastlane build"
+        working-directory: ./mobileapp
+        uses: maierj/fastlane-action@v2.3.0
         with:
           lane: 'build'
           verbose: true
