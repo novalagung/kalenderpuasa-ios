@@ -1,10 +1,10 @@
-name: CD
+name: Build
+
 on:
   push:
     tags:        
       - '*'
-
-  # Allows you to run this workflow manually from the Actions a tab
+  # allows you to run this workflow manually from the Actions a tab
   workflow_dispatch:
 
 jobs:
