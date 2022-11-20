@@ -22,4 +22,5 @@ CC BY-NC-SA 4.0
 
 ## Author
 
-Noval Agung Prayogo
+- [Abdul Rokhman As Syukur](https://linktr.ee/anasyukr)
+- [Noval Agung Prayogo](https://novalagung.com)
