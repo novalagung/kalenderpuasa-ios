@@ -1,0 +1,967 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EF07A9583671CABB7103486 /* Pods_Kalender_Puasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F757C1AA4AEA7C7D7A4A5 /* Pods_Kalender_Puasa.framework */; };
+		F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A7E92768619B009EC0CF /* AppDelegate.m */; };
+		F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F42768619C009EC0CF /* Assets.xcassets */; };
+		F109A7F82768619C009EC0CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */; };
+		F109A7FB2768619C009EC0CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A7FA2768619C009EC0CF /* main.m */; };
+		F109A8052768619D009EC0CF /* Kalender_PuasaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A8042768619D009EC0CF /* Kalender_PuasaTests.m */; };
+		F109A80F2768619D009EC0CF /* Kalender_PuasaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A80E2768619D009EC0CF /* Kalender_PuasaUITests.m */; };
+		F109A8112768619D009EC0CF /* Kalender_PuasaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A8102768619D009EC0CF /* Kalender_PuasaUITestsLaunchTests.m */; };
+		F109A83D276862CE009EC0CF /* date.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A81D276862CB009EC0CF /* date.png */; };
+		F109A83E276862CE009EC0CF /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A81E276862CB009EC0CF /* left.png */; };
+		F109A83F276862CE009EC0CF /* info-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A81F276862CB009EC0CF /* info-active.png */; };
+		F109A840276862CE009EC0CF /* date-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A820276862CB009EC0CF /* date-active@2x.png */; };
+		F109A841276862CE009EC0CF /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A821276862CB009EC0CF /* left@2x.png */; };
+		F109A842276862CE009EC0CF /* cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A822276862CB009EC0CF /* cover@2x.png */; };
+		F109A843276862CE009EC0CF /* date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A823276862CB009EC0CF /* date@2x.png */; };
+		F109A844276862CE009EC0CF /* left-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A824276862CC009EC0CF /* left-active@2x.png */; };
+		F109A845276862CE009EC0CF /* pull.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A825276862CC009EC0CF /* pull.png */; };
+		F109A846276862CE009EC0CF /* right-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A826276862CC009EC0CF /* right-active.png */; };
+		F109A847276862CE009EC0CF /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A827276862CC009EC0CF /* book.png */; };
+		F109A848276862CE009EC0CF /* left-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A828276862CC009EC0CF /* left-active.png */; };
+		F109A849276862CE009EC0CF /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A829276862CC009EC0CF /* right.png */; };
+		F109A84A276862CE009EC0CF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A82A276862CC009EC0CF /* logo.png */; };
+		F109A84C276862CE009EC0CF /* date-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A82C276862CC009EC0CF /* date-active.png */; };
+		F109A84D276862CE009EC0CF /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A82D276862CD009EC0CF /* logo@2x.png */; };
+		F109A84E276862CE009EC0CF /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A82E276862CD009EC0CF /* cover.png */; };
+		F109A84F276862CE009EC0CF /* motif.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A82F276862CD009EC0CF /* motif.png */; };
+		F109A850276862CE009EC0CF /* book-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A830276862CD009EC0CF /* book-active@2x.png */; };
+		F109A851276862CE009EC0CF /* info-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A831276862CD009EC0CF /* info-active@2x.png */; };
+		F109A852276862CE009EC0CF /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A832276862CD009EC0CF /* info@2x.png */; };
+		F109A854276862CE009EC0CF /* logo-front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A834276862CD009EC0CF /* logo-front@2x.png */; };
+		F109A855276862CE009EC0CF /* pull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A835276862CD009EC0CF /* pull@2x.png */; };
+		F109A856276862CE009EC0CF /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A836276862CD009EC0CF /* info.png */; };
+		F109A857276862CE009EC0CF /* book-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A837276862CD009EC0CF /* book-active.png */; };
+		F109A858276862CE009EC0CF /* book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A838276862CD009EC0CF /* book@2x.png */; };
+		F109A859276862CE009EC0CF /* right-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A839276862CD009EC0CF /* right-active@2x.png */; };
+		F109A85A276862CE009EC0CF /* logo-front.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83A276862CD009EC0CF /* logo-front.png */; };
+		F109A85B276862CE009EC0CF /* motif@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83B276862CE009EC0CF /* motif@2x.png */; };
+		F109A85C276862CE009EC0CF /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83C276862CE009EC0CF /* right@2x.png */; };
+		F109A864276862F4009EC0CF /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A85E276862F3009EC0CF /* Lato-Medium.ttf */; };
+		F109A865276862F4009EC0CF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A85F276862F3009EC0CF /* OpenSans-Regular.ttf */; };
+		F109A866276862F4009EC0CF /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A860276862F3009EC0CF /* Lobster.ttf */; };
+		F109A867276862F4009EC0CF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */; };
+		F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */; };
+		F109A869276862F4009EC0CF /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A863276862F4009EC0CF /* Lato-Black.ttf */; };
+		F109A88627686319009EC0CF /* FastingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86B27686317009EC0CF /* FastingViewController.m */; };
+		F109A88727686319009EC0CF /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86D27686317009EC0CF /* Constant.m */; };
+		F109A88827686319009EC0CF /* RateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86E27686317009EC0CF /* RateHelper.m */; };
+		F109A88927686319009EC0CF /* UIColor+Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87027686317009EC0CF /* UIColor+Extends.m */; };
+		F109A88A27686319009EC0CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F109A87127686317009EC0CF /* GoogleService-Info.plist */; };
+		F109A88B27686319009EC0CF /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87227686317009EC0CF /* CoreDataManager.m */; };
+		F109A88C27686319009EC0CF /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87327686317009EC0CF /* InfoViewController.m */; };
+		F109A88D27686319009EC0CF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F109A87427686317009EC0CF /* Model.xcdatamodeld */; };
+		F109A89127686319009EC0CF /* UIDevice+Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87E27686318009EC0CF /* UIDevice+Extends.m */; };
+		F109A89227686319009EC0CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A88427686318009EC0CF /* ViewController.m */; };
+		F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A88527686318009EC0CF /* MonthPickerViewController.m */; };
+		F109A89627686363009EC0CF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A89427686363009EC0CF /* Main_iPhone.storyboard */; };
+		F109A89727686363009EC0CF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A89527686363009EC0CF /* Main_iPad.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F109A8012768619D009EC0CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F109A7DD2768619B009EC0CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F109A7E42768619B009EC0CF;
+			remoteInfo = "Kalender Puasa";
+		};
+		F109A80B2768619D009EC0CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F109A7DD2768619B009EC0CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F109A7E42768619B009EC0CF;
+			remoteInfo = "Kalender Puasa";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		43EC2498F98481525337B144 /* Pods-Kalender Puasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalender Puasa.debug.xcconfig"; path = "Target Support Files/Pods-Kalender Puasa/Pods-Kalender Puasa.debug.xcconfig"; sourceTree = "<group>"; };
+		46DC50B730351A8791DBB665 /* Pods-Kalender Puasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalender Puasa.release.xcconfig"; path = "Target Support Files/Pods-Kalender Puasa/Pods-Kalender Puasa.release.xcconfig"; sourceTree = "<group>"; };
+		550F757C1AA4AEA7C7D7A4A5 /* Pods_Kalender_Puasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kalender_Puasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F109A7E52768619B009EC0CF /* Kalender Puasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kalender Puasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F109A7E82768619B009EC0CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F109A7E92768619B009EC0CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F109A7F42768619C009EC0CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F109A7F72768619C009EC0CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F109A7F92768619C009EC0CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F109A7FA2768619C009EC0CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F109A8002768619D009EC0CF /* Kalender PuasaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kalender PuasaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F109A8042768619D009EC0CF /* Kalender_PuasaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kalender_PuasaTests.m; sourceTree = "<group>"; };
+		F109A80A2768619D009EC0CF /* Kalender PuasaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kalender PuasaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F109A80E2768619D009EC0CF /* Kalender_PuasaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kalender_PuasaUITests.m; sourceTree = "<group>"; };
+		F109A8102768619D009EC0CF /* Kalender_PuasaUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kalender_PuasaUITestsLaunchTests.m; sourceTree = "<group>"; };
+		F109A81D276862CB009EC0CF /* date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = date.png; sourceTree = "<group>"; };
+		F109A81E276862CB009EC0CF /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		F109A81F276862CB009EC0CF /* info-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-active.png"; sourceTree = "<group>"; };
+		F109A820276862CB009EC0CF /* date-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-active@2x.png"; sourceTree = "<group>"; };
+		F109A821276862CB009EC0CF /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		F109A822276862CB009EC0CF /* cover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover@2x.png"; sourceTree = "<group>"; };
+		F109A823276862CB009EC0CF /* date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date@2x.png"; sourceTree = "<group>"; };
+		F109A824276862CC009EC0CF /* left-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-active@2x.png"; sourceTree = "<group>"; };
+		F109A825276862CC009EC0CF /* pull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pull.png; sourceTree = "<group>"; };
+		F109A826276862CC009EC0CF /* right-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-active.png"; sourceTree = "<group>"; };
+		F109A827276862CC009EC0CF /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		F109A828276862CC009EC0CF /* left-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-active.png"; sourceTree = "<group>"; };
+		F109A829276862CC009EC0CF /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		F109A82A276862CC009EC0CF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F109A82C276862CC009EC0CF /* date-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date-active.png"; sourceTree = "<group>"; };
+		F109A82D276862CD009EC0CF /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		F109A82E276862CD009EC0CF /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
+		F109A82F276862CD009EC0CF /* motif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motif.png; sourceTree = "<group>"; };
+		F109A830276862CD009EC0CF /* book-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-active@2x.png"; sourceTree = "<group>"; };
+		F109A831276862CD009EC0CF /* info-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-active@2x.png"; sourceTree = "<group>"; };
+		F109A832276862CD009EC0CF /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		F109A834276862CD009EC0CF /* logo-front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-front@2x.png"; sourceTree = "<group>"; };
+		F109A835276862CD009EC0CF /* pull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pull@2x.png"; sourceTree = "<group>"; };
+		F109A836276862CD009EC0CF /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		F109A837276862CD009EC0CF /* book-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-active.png"; sourceTree = "<group>"; };
+		F109A838276862CD009EC0CF /* book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@2x.png"; sourceTree = "<group>"; };
+		F109A839276862CD009EC0CF /* right-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-active@2x.png"; sourceTree = "<group>"; };
+		F109A83A276862CD009EC0CF /* logo-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-front.png"; sourceTree = "<group>"; };
+		F109A83B276862CE009EC0CF /* motif@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "motif@2x.png"; sourceTree = "<group>"; };
+		F109A83C276862CE009EC0CF /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		F109A85E276862F3009EC0CF /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		F109A85F276862F3009EC0CF /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		F109A860276862F3009EC0CF /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
+		F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		F109A863276862F4009EC0CF /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		F109A86B27686317009EC0CF /* FastingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastingViewController.m; sourceTree = "<group>"; };
+		F109A86C27686317009EC0CF /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		F109A86D27686317009EC0CF /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		F109A86E27686317009EC0CF /* RateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateHelper.m; sourceTree = "<group>"; };
+		F109A86F27686317009EC0CF /* MonthPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthPickerViewController.h; sourceTree = "<group>"; };
+		F109A87027686317009EC0CF /* UIColor+Extends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extends.m"; sourceTree = "<group>"; };
+		F109A87127686317009EC0CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F109A87227686317009EC0CF /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		F109A87327686317009EC0CF /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		F109A87527686317009EC0CF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F109A87727686318009EC0CF /* UIColor+Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extends.h"; sourceTree = "<group>"; };
+		F109A87927686318009EC0CF /* UIDevice+Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extends.h"; sourceTree = "<group>"; };
+		F109A87B27686318009EC0CF /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		F109A87D27686318009EC0CF /* RateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateHelper.h; sourceTree = "<group>"; };
+		F109A87E27686318009EC0CF /* UIDevice+Extends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extends.m"; sourceTree = "<group>"; };
+		F109A87F27686318009EC0CF /* FastingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastingViewController.h; sourceTree = "<group>"; };
+		F109A88127686318009EC0CF /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		F109A88227686318009EC0CF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F109A88427686318009EC0CF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F109A88527686318009EC0CF /* MonthPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthPickerViewController.m; sourceTree = "<group>"; };
+		F109A89427686363009EC0CF /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F109A89527686363009EC0CF /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F109A7E22768619B009EC0CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF07A9583671CABB7103486 /* Pods_Kalender_Puasa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A7FD2768619D009EC0CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A8072768619D009EC0CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E23FA4E2D3CF6092372A0764 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43EC2498F98481525337B144 /* Pods-Kalender Puasa.debug.xcconfig */,
+				46DC50B730351A8791DBB665 /* Pods-Kalender Puasa.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EEBABE09206DB5761DA583BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				550F757C1AA4AEA7C7D7A4A5 /* Pods_Kalender_Puasa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F109A7DC2768619B009EC0CF = {
+			isa = PBXGroup;
+			children = (
+				F109A7E72768619B009EC0CF /* Kalender Puasa */,
+				F109A8032768619D009EC0CF /* Kalender PuasaTests */,
+				F109A80D2768619D009EC0CF /* Kalender PuasaUITests */,
+				F109A7E62768619B009EC0CF /* Products */,
+				E23FA4E2D3CF6092372A0764 /* Pods */,
+				EEBABE09206DB5761DA583BA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F109A7E62768619B009EC0CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F109A7E52768619B009EC0CF /* Kalender Puasa.app */,
+				F109A8002768619D009EC0CF /* Kalender PuasaTests.xctest */,
+				F109A80A2768619D009EC0CF /* Kalender PuasaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F109A7E72768619B009EC0CF /* Kalender Puasa */ = {
+			isa = PBXGroup;
+			children = (
+				F109A85D276862D6009EC0CF /* Images */,
+				F109A86A276862FA009EC0CF /* Fonts */,
+				F109A89A276885D7009EC0CF /* ViewControllers */,
+				F109A899276885BB009EC0CF /* Model */,
+				F109A89827688599009EC0CF /* Utility */,
+				F109A7FA2768619C009EC0CF /* main.m */,
+				F109A7E82768619B009EC0CF /* AppDelegate.h */,
+				F109A7E92768619B009EC0CF /* AppDelegate.m */,
+				F109A89527686363009EC0CF /* Main_iPad.storyboard */,
+				F109A89427686363009EC0CF /* Main_iPhone.storyboard */,
+				F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */,
+				F109A7F42768619C009EC0CF /* Assets.xcassets */,
+				F109A87127686317009EC0CF /* GoogleService-Info.plist */,
+				F109A7F92768619C009EC0CF /* Info.plist */,
+			);
+			path = "Kalender Puasa";
+			sourceTree = "<group>";
+		};
+		F109A8032768619D009EC0CF /* Kalender PuasaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F109A8042768619D009EC0CF /* Kalender_PuasaTests.m */,
+			);
+			path = "Kalender PuasaTests";
+			sourceTree = "<group>";
+		};
+		F109A80D2768619D009EC0CF /* Kalender PuasaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F109A80E2768619D009EC0CF /* Kalender_PuasaUITests.m */,
+				F109A8102768619D009EC0CF /* Kalender_PuasaUITestsLaunchTests.m */,
+			);
+			path = "Kalender PuasaUITests";
+			sourceTree = "<group>";
+		};
+		F109A85D276862D6009EC0CF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F109A837276862CD009EC0CF /* book-active.png */,
+				F109A830276862CD009EC0CF /* book-active@2x.png */,
+				F109A827276862CC009EC0CF /* book.png */,
+				F109A838276862CD009EC0CF /* book@2x.png */,
+				F109A82E276862CD009EC0CF /* cover.png */,
+				F109A822276862CB009EC0CF /* cover@2x.png */,
+				F109A82C276862CC009EC0CF /* date-active.png */,
+				F109A820276862CB009EC0CF /* date-active@2x.png */,
+				F109A81D276862CB009EC0CF /* date.png */,
+				F109A823276862CB009EC0CF /* date@2x.png */,
+				F109A81F276862CB009EC0CF /* info-active.png */,
+				F109A831276862CD009EC0CF /* info-active@2x.png */,
+				F109A836276862CD009EC0CF /* info.png */,
+				F109A832276862CD009EC0CF /* info@2x.png */,
+				F109A828276862CC009EC0CF /* left-active.png */,
+				F109A824276862CC009EC0CF /* left-active@2x.png */,
+				F109A81E276862CB009EC0CF /* left.png */,
+				F109A821276862CB009EC0CF /* left@2x.png */,
+				F109A83A276862CD009EC0CF /* logo-front.png */,
+				F109A834276862CD009EC0CF /* logo-front@2x.png */,
+				F109A82A276862CC009EC0CF /* logo.png */,
+				F109A82D276862CD009EC0CF /* logo@2x.png */,
+				F109A82F276862CD009EC0CF /* motif.png */,
+				F109A83B276862CE009EC0CF /* motif@2x.png */,
+				F109A825276862CC009EC0CF /* pull.png */,
+				F109A835276862CD009EC0CF /* pull@2x.png */,
+				F109A826276862CC009EC0CF /* right-active.png */,
+				F109A839276862CD009EC0CF /* right-active@2x.png */,
+				F109A829276862CC009EC0CF /* right.png */,
+				F109A83C276862CE009EC0CF /* right@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F109A86A276862FA009EC0CF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F109A863276862F4009EC0CF /* Lato-Black.ttf */,
+				F109A85E276862F3009EC0CF /* Lato-Medium.ttf */,
+				F109A860276862F3009EC0CF /* Lobster.ttf */,
+				F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */,
+				F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */,
+				F109A85F276862F3009EC0CF /* OpenSans-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F109A89827688599009EC0CF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F109A87D27686318009EC0CF /* RateHelper.h */,
+				F109A86E27686317009EC0CF /* RateHelper.m */,
+				F109A87727686318009EC0CF /* UIColor+Extends.h */,
+				F109A87027686317009EC0CF /* UIColor+Extends.m */,
+				F109A87927686318009EC0CF /* UIDevice+Extends.h */,
+				F109A87E27686318009EC0CF /* UIDevice+Extends.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F109A899276885BB009EC0CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F109A87427686317009EC0CF /* Model.xcdatamodeld */,
+				F109A88127686318009EC0CF /* Constant.h */,
+				F109A86D27686317009EC0CF /* Constant.m */,
+				F109A86C27686317009EC0CF /* CoreDataManager.h */,
+				F109A87227686317009EC0CF /* CoreDataManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F109A89A276885D7009EC0CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F109A88227686318009EC0CF /* ViewController.h */,
+				F109A88427686318009EC0CF /* ViewController.m */,
+				F109A86B27686317009EC0CF /* FastingViewController.m */,
+				F109A87B27686318009EC0CF /* InfoViewController.h */,
+				F109A87327686317009EC0CF /* InfoViewController.m */,
+				F109A86F27686317009EC0CF /* MonthPickerViewController.h */,
+				F109A88527686318009EC0CF /* MonthPickerViewController.m */,
+				F109A87F27686318009EC0CF /* FastingViewController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F109A7E42768619B009EC0CF /* Kalender Puasa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F109A8142768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender Puasa" */;
+			buildPhases = (
+				48C32EC73C1A6179BCC2B6BB /* [CP] Check Pods Manifest.lock */,
+				F109A7E12768619B009EC0CF /* Sources */,
+				F109A7E22768619B009EC0CF /* Frameworks */,
+				F109A7E32768619B009EC0CF /* Resources */,
+				E5022FA5F28FE81E37C5D94A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kalender Puasa";
+			productName = "Kalender Puasa";
+			productReference = F109A7E52768619B009EC0CF /* Kalender Puasa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F109A7FF2768619D009EC0CF /* Kalender PuasaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F109A8172768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender PuasaTests" */;
+			buildPhases = (
+				F109A7FC2768619D009EC0CF /* Sources */,
+				F109A7FD2768619D009EC0CF /* Frameworks */,
+				F109A7FE2768619D009EC0CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F109A8022768619D009EC0CF /* PBXTargetDependency */,
+			);
+			name = "Kalender PuasaTests";
+			productName = "Kalender PuasaTests";
+			productReference = F109A8002768619D009EC0CF /* Kalender PuasaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F109A8092768619D009EC0CF /* Kalender PuasaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F109A81A2768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender PuasaUITests" */;
+			buildPhases = (
+				F109A8062768619D009EC0CF /* Sources */,
+				F109A8072768619D009EC0CF /* Frameworks */,
+				F109A8082768619D009EC0CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F109A80C2768619D009EC0CF /* PBXTargetDependency */,
+			);
+			name = "Kalender PuasaUITests";
+			productName = "Kalender PuasaUITests";
+			productReference = F109A80A2768619D009EC0CF /* Kalender PuasaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F109A7DD2768619B009EC0CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					F109A7E42768619B009EC0CF = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					F109A7FF2768619D009EC0CF = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = F109A7E42768619B009EC0CF;
+					};
+					F109A8092768619D009EC0CF = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = F109A7E42768619B009EC0CF;
+					};
+				};
+			};
+			buildConfigurationList = F109A7E02768619B009EC0CF /* Build configuration list for PBXProject "Kalender Puasa" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F109A7DC2768619B009EC0CF;
+			productRefGroup = F109A7E62768619B009EC0CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F109A7E42768619B009EC0CF /* Kalender Puasa */,
+				F109A7FF2768619D009EC0CF /* Kalender PuasaTests */,
+				F109A8092768619D009EC0CF /* Kalender PuasaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F109A7E32768619B009EC0CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F109A85B276862CE009EC0CF /* motif@2x.png in Resources */,
+				F109A85A276862CE009EC0CF /* logo-front.png in Resources */,
+				F109A7F82768619C009EC0CF /* LaunchScreen.storyboard in Resources */,
+				F109A83F276862CE009EC0CF /* info-active.png in Resources */,
+				F109A843276862CE009EC0CF /* date@2x.png in Resources */,
+				F109A83E276862CE009EC0CF /* left.png in Resources */,
+				F109A844276862CE009EC0CF /* left-active@2x.png in Resources */,
+				F109A84D276862CE009EC0CF /* logo@2x.png in Resources */,
+				F109A850276862CE009EC0CF /* book-active@2x.png in Resources */,
+				F109A869276862F4009EC0CF /* Lato-Black.ttf in Resources */,
+				F109A84A276862CE009EC0CF /* logo.png in Resources */,
+				F109A841276862CE009EC0CF /* left@2x.png in Resources */,
+				F109A848276862CE009EC0CF /* left-active.png in Resources */,
+				F109A864276862F4009EC0CF /* Lato-Medium.ttf in Resources */,
+				F109A847276862CE009EC0CF /* book.png in Resources */,
+				F109A842276862CE009EC0CF /* cover@2x.png in Resources */,
+				F109A89627686363009EC0CF /* Main_iPhone.storyboard in Resources */,
+				F109A866276862F4009EC0CF /* Lobster.ttf in Resources */,
+				F109A865276862F4009EC0CF /* OpenSans-Regular.ttf in Resources */,
+				F109A852276862CE009EC0CF /* info@2x.png in Resources */,
+				F109A854276862CE009EC0CF /* logo-front@2x.png in Resources */,
+				F109A857276862CE009EC0CF /* book-active.png in Resources */,
+				F109A84E276862CE009EC0CF /* cover.png in Resources */,
+				F109A89727686363009EC0CF /* Main_iPad.storyboard in Resources */,
+				F109A867276862F4009EC0CF /* OpenSans-Bold.ttf in Resources */,
+				F109A83D276862CE009EC0CF /* date.png in Resources */,
+				F109A849276862CE009EC0CF /* right.png in Resources */,
+				F109A84F276862CE009EC0CF /* motif.png in Resources */,
+				F109A85C276862CE009EC0CF /* right@2x.png in Resources */,
+				F109A846276862CE009EC0CF /* right-active.png in Resources */,
+				F109A845276862CE009EC0CF /* pull.png in Resources */,
+				F109A859276862CE009EC0CF /* right-active@2x.png in Resources */,
+				F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */,
+				F109A851276862CE009EC0CF /* info-active@2x.png in Resources */,
+				F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */,
+				F109A858276862CE009EC0CF /* book@2x.png in Resources */,
+				F109A855276862CE009EC0CF /* pull@2x.png in Resources */,
+				F109A84C276862CE009EC0CF /* date-active.png in Resources */,
+				F109A856276862CE009EC0CF /* info.png in Resources */,
+				F109A840276862CE009EC0CF /* date-active@2x.png in Resources */,
+				F109A88A27686319009EC0CF /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A7FE2768619D009EC0CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A8082768619D009EC0CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48C32EC73C1A6179BCC2B6BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kalender Puasa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5022FA5F28FE81E37C5D94A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kalender Puasa/Pods-Kalender Puasa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kalender Puasa/Pods-Kalender Puasa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kalender Puasa/Pods-Kalender Puasa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F109A7E12768619B009EC0CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */,
+				F109A89127686319009EC0CF /* UIDevice+Extends.m in Sources */,
+				F109A88B27686319009EC0CF /* CoreDataManager.m in Sources */,
+				F109A88C27686319009EC0CF /* InfoViewController.m in Sources */,
+				F109A88627686319009EC0CF /* FastingViewController.m in Sources */,
+				F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */,
+				F109A88827686319009EC0CF /* RateHelper.m in Sources */,
+				F109A89227686319009EC0CF /* ViewController.m in Sources */,
+				F109A88D27686319009EC0CF /* Model.xcdatamodeld in Sources */,
+				F109A88927686319009EC0CF /* UIColor+Extends.m in Sources */,
+				F109A7FB2768619C009EC0CF /* main.m in Sources */,
+				F109A88727686319009EC0CF /* Constant.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A7FC2768619D009EC0CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F109A8052768619D009EC0CF /* Kalender_PuasaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F109A8062768619D009EC0CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F109A80F2768619D009EC0CF /* Kalender_PuasaUITests.m in Sources */,
+				F109A8112768619D009EC0CF /* Kalender_PuasaUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F109A8022768619D009EC0CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F109A7E42768619B009EC0CF /* Kalender Puasa */;
+			targetProxy = F109A8012768619D009EC0CF /* PBXContainerItemProxy */;
+		};
+		F109A80C2768619D009EC0CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F109A7E42768619B009EC0CF /* Kalender Puasa */;
+			targetProxy = F109A80B2768619D009EC0CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F109A7F72768619C009EC0CF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F109A8122768619D009EC0CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F109A8132768619D009EC0CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F109A8152768619D009EC0CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43EC2498F98481525337B144 /* Pods-Kalender Puasa.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Noval Agung Prayogo (8KLL93A755)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = 8KLL93A755;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Kalender Puasa/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Kalender Puasa";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke bluetooth";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke event kalender";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke kamera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke photo library";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke Reminders, agar jadwal puasa bisa diintegrasikan";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main_iPhone;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 1.2023.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novalagung.Kalender-Puasa";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.novalagung.Kalender-Puasa";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		F109A8162768619D009EC0CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46DC50B730351A8791DBB665 /* Pods-Kalender Puasa.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Noval Agung Prayogo (8KLL93A755)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = 8KLL93A755;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Kalender Puasa/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Kalender Puasa";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke bluetooth";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke event kalender";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke kamera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke photo library";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Aplikasi Kalender Puasa membutuhkan anda untuk mengijinkan akses ke Reminders, agar jadwal puasa bisa diintegrasikan";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main_iPhone;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 1.2023.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novalagung.Kalender-Puasa";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.novalagung.Kalender-Puasa";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		F109A8182768619D009EC0CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tttest.Kalender-PuasaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalender Puasa.app/Kalender Puasa";
+			};
+			name = Debug;
+		};
+		F109A8192768619D009EC0CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tttest.Kalender-PuasaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalender Puasa.app/Kalender Puasa";
+			};
+			name = Release;
+		};
+		F109A81B2768619D009EC0CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tttest.Kalender-PuasaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Kalender Puasa";
+			};
+			name = Debug;
+		};
+		F109A81C2768619D009EC0CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tttest.Kalender-PuasaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Kalender Puasa";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F109A7E02768619B009EC0CF /* Build configuration list for PBXProject "Kalender Puasa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F109A8122768619D009EC0CF /* Debug */,
+				F109A8132768619D009EC0CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F109A8142768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender Puasa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F109A8152768619D009EC0CF /* Debug */,
+				F109A8162768619D009EC0CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F109A8172768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender PuasaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F109A8182768619D009EC0CF /* Debug */,
+				F109A8192768619D009EC0CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F109A81A2768619D009EC0CF /* Build configuration list for PBXNativeTarget "Kalender PuasaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F109A81B2768619D009EC0CF /* Debug */,
+				F109A81C2768619D009EC0CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F109A87427686317009EC0CF /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F109A87527686317009EC0CF /* Model.xcdatamodel */,
+			);
+			currentVersion = F109A87527686317009EC0CF /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F109A7DD2768619B009EC0CF /* Project object */;
+}

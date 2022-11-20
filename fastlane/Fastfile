@@ -1,0 +1,100 @@
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.overload '.env'
+end
+
+default_platform(:ios)
+
+def delete_temp_keychain(name)
+  delete_keychain(
+    name: name
+  ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+end
+
+def create_temp_keychain(name, password)
+  create_keychain(
+    name: name,
+    password: password,
+    unlock: false,
+    timeout: 0
+  )
+end
+
+def ensure_temp_keychain(name, password)
+  delete_temp_keychain(name)
+  create_temp_keychain(name, password)
+end
+
+APP_ID = "796222919"
+APP_NAME = "Kalender Puasa"
+APP_BUNDLE_ID = "com.novalagung.Kalender-Puasa"
+APP_VERSION = "1.2023.0"
+
+platform :ios do
+
+  lane :build do
+    setup_ci
+
+    ensure_temp_keychain(
+      ENV["TEMP_KEYCHAIN_USER"],
+      ENV["TEMP_KEYCHAIN_PASSWORD"]
+    )
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APPLE_KEY_ID"],
+      issuer_id: ENV["APPLE_ISSUER_ID"],
+      key_content: ENV["APPLE_KEY_CONTENT"],            
+      duration: 1200,            
+      in_house: false
+    )
+
+    match(
+      type: ENV["MATCH_ENVIRONMENT"],
+      app_identifier: APP_BUNDLE_ID,
+      readonly: true,
+      api_key: api_key
+    )
+
+    previous_build_number = latest_testflight_build_number(
+      app_identifier: APP_BUNDLE_ID,
+      api_key: api_key,
+    )
+    increment_build_number(
+      xcodeproj: "#{APP_NAME}.xcodeproj",
+      build_number: previous_build_number + 1
+    )
+
+    increment_version_number(
+      xcodeproj: "#{APP_NAME}.xcodeproj",
+      version_number: APP_VERSION
+    )
+
+    cocoapods(
+      clean_install: true
+    )
+
+    gym(
+      configuration: "Release",
+      workspace: "#{APP_NAME}.xcworkspace",
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: { 
+          APP_ID => ENV["PROVISIONING_PROFILE"]
+        }
+      }
+    )
+
+    pilot(
+      apple_id: APP_ID,
+      app_identifier: APP_BUNDLE_ID,
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false,
+      ipa: "./#{APP_NAME}.ipa"
+    )
+
+    delete_temp_keychain(ENV["TEMP_KEYCHAIN_USER"])
+  end
+end
