@@ -6,6 +6,8 @@
 	<string>????</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1417781814120840~5229182600</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lobster.ttf</string>
