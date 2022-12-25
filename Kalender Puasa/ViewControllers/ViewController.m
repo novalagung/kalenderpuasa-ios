@@ -100,11 +100,13 @@
     _overlay.hidden = YES;
     _overlay.alpha = 0;
     
-    if ([UIDevice isIPad]) {
-        [self prepareFastingViewForIpad];
-    } else {
+    if (![UIDevice isIPad]) {
         [self prepareFastingViewForIphone];
+    } else {
+        [self prepareFastingViewForIpad];
     }
+
+    [self prepareCalendarView];
     
     btnRateNo.backgroundColor = [UIColor clearColor];
     [btnRateNo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -135,8 +137,6 @@
     if (!isViewDidLoad) return;
     isViewDidLoad = NO;
     
-    [self prepareCalendarView];
-
     [RateHelper whenRateViewTimeDo:^{
         self->viewRate.superview.hidden = false;
     }];
@@ -149,10 +149,6 @@
 }
     
 - (void)prepareCalendarView {
-    if ([UIDevice isIPad]) {
-        _calendarScrollView.contentSize = CGSizeMake(self.view.frame.size.width * 3, _calendarScrollView.frame.size.height);
-    }
-    
     long currentMonthIndex = ([[self getDateComponents] month] - 1);
     if ([UIDevice isIPad]) currentMonthIndex = floor(currentMonthIndex / 4);
     
@@ -394,30 +390,10 @@
 }
     
 - (void)prepareFastingViewForIpad {
-    
-    CGRect containerFrame = _contentContainerView.frame;
-    containerFrame = CGRectMake(containerFrame.origin.x, containerFrame.origin.y, 768, 954);
-    _contentContainerView.frame = containerFrame;
-//    _contentContainerView.backgroundColor = UIColor.greenColor;
-     
-    
-    
-    int viewHeight = self.view.frame.size.height;
-    int viewWidth = self.view.frame.size.width;
-    
-    NSLog(@"view size %d %d", viewWidth, viewHeight);
-    
-    CGSize containerSize = CGSizeMake(768, (viewHeight > 1024) ? 960 : 840);
-    _calendarScrollView.frame = CGRectMake(
-        (viewWidth - 768) / 2,
-        110,
-        containerSize.width,
-        containerSize.height
-    );
-    _calendarScrollView.contentSize = CGSizeMake(
-        containerSize.width * 3,
-        containerSize.height
-    );
+    CGSize containerSize = CGSizeMake(744, 954);
+
+    _calendarScrollView.frame = CGRectMake(0, 140, containerSize.width, containerSize.height);
+    _calendarScrollView.contentSize = CGSizeMake(containerSize.width * 3, containerSize.height);
     
     int c = 0;
     for (int i = 0; i < 3; i++) {
@@ -428,17 +404,11 @@
             CGRect sectionFrame = CGRectZero;
             sectionFrame.size.width = 320;
             sectionFrame.size.height = 400;
-            sectionFrame.origin.x = (containerSize.width * i) + ((j % 2) == 0 ? 0 : (containerSize.width / 2));
-            sectionFrame.origin.y = (j < 2) ? 0 : (containerSize.height / 2);
             
-            // append left margin
-            sectionFrame.origin.x += ((containerSize.width / 2) - sectionFrame.size.width) / 2;
-            
-            // append top margin
-            sectionFrame.origin.y += ((containerSize.height / 2) - sectionFrame.size.height) / 2;
+            sectionFrame.origin.x = (containerSize.width * i) + ((j % 2) == 0 ? 0 : (containerSize.width / 2)) + 20;
+            sectionFrame.origin.y = (j < 2) ? 0 : (containerSize.height / 2) - 50;
             
             section.frame = sectionFrame;
-//            section.backgroundColor = UIColor.redColor;
         }
     }
     
@@ -448,26 +418,7 @@
         UILabel *labelYear2 = [_labelYear.subviews objectAtIndex:1];
         labelYear2.text = [NSString stringWithFormat:@"%@ - %@ Hijriyah", [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
     }
-    
-    int btnPadding = ((viewWidth - containerSize.width) / 2);
-    if (btnPadding < 10) {
-        btnPadding = 20;
-    }
-    
-    /* _btnPrev */ {
-        CGRect f = _btnPrev.frame;
-        f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
-        f.origin.x = 0 + btnPadding;
-        _btnPrev.frame = f;
-    }
-    
-    /* _btnNext */ {
-        CGRect f = _btnNext.frame;
-        f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
-        f.origin.x = viewWidth - f.size.width - btnPadding;
-        _btnNext.frame = f;
-    }
-    
+
     int i = 0;
     
     UIView *block;
