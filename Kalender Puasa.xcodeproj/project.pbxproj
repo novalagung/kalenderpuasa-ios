@@ -342,12 +342,12 @@
 			children = (
 				F109A88227686318009EC0CF /* ViewController.h */,
 				F109A88427686318009EC0CF /* ViewController.m */,
-				F109A86B27686317009EC0CF /* FastingViewController.m */,
 				F109A87B27686318009EC0CF /* InfoViewController.h */,
 				F109A87327686317009EC0CF /* InfoViewController.m */,
 				F109A86F27686317009EC0CF /* MonthPickerViewController.h */,
 				F109A88527686318009EC0CF /* MonthPickerViewController.m */,
 				F109A87F27686318009EC0CF /* FastingViewController.h */,
+				F109A86B27686317009EC0CF /* FastingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
