@@ -46,6 +46,7 @@
     IBOutlet UIImageView *_imageTitle;
     IBOutlet UITextView *_yearNote;
     
+    IBOutlet UIView *_contentContainerView;
     IBOutlet UIScrollView *_calendarScrollView;
     
     UIView *currentDay;
@@ -99,217 +100,9 @@
     _overlay.hidden = YES;
     _overlay.alpha = 0;
     
-    int viewHeight = self.view.frame.size.height;
-    int viewWidth = self.view.frame.size.width;
-    
-    NSLog(@"view size %d %d", viewWidth, viewHeight);
-    
     if ([UIDevice isIPad]) {
-        CGSize containerSize = CGSizeMake(768, (viewHeight > 1024) ? 960 : 840);
-        _calendarScrollView.frame = CGRectMake(
-            (viewWidth - 768) / 2,
-            110,
-            containerSize.width,
-            containerSize.height
-        );
-        _calendarScrollView.contentSize = CGSizeMake(
-            containerSize.width * 3,
-            containerSize.height
-        );
-        
-        int c = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                UIView *section = [_calendarScrollView viewWithTag:10 + c];
-                c++;
-                
-                CGRect sectionFrame = CGRectZero;
-                sectionFrame.size.width = 320;
-                sectionFrame.size.height = 380;
-                sectionFrame.origin.x = (containerSize.width * i) + ((j % 2) == 0 ? 0 : (containerSize.width / 2));
-                sectionFrame.origin.y = (j < 2) ? 0 : (containerSize.height / 2);
-                
-                sectionFrame.origin.x += ((containerSize.width / 2) - sectionFrame.size.width) / 2;
-                sectionFrame.origin.y += ((containerSize.height / 2) - sectionFrame.size.height) / 2;
-                
-                section.frame = sectionFrame;
-            }
-        }
-        
-        /* label */ {
-            UILabel *labelYear1 = [_labelYear.subviews objectAtIndex:0];
-            labelYear1.text = [NSString stringWithFormat:@"%d Masehi", [Constant getCurrentYear]];
-            UILabel *labelYear2 = [_labelYear.subviews objectAtIndex:1];
-            labelYear2.text = [NSString stringWithFormat:@"%@ - %@ Hijriyah", [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
-        }
-        
-        int btnPadding = ((viewWidth - containerSize.width) / 2);
-        if (btnPadding < 10) {
-            btnPadding = 20;
-        }
-        
-        /* _btnPrev */ {
-            CGRect f = _btnPrev.frame;
-            f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
-            f.origin.x = 0 + btnPadding;
-            _btnPrev.frame = f;
-        }
-        
-        /* _btnNext */ {
-            CGRect f = _btnNext.frame;
-            f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
-            f.origin.x = viewWidth - f.size.width - btnPadding;
-            _btnNext.frame = f;
-        }
-            
         [self prepareFastingViewForIpad];
     } else {
-        int viewWidth320 = 320;
-        
-        int calendarYInitial = 0;
-        int buttonTopPositionInitial = 0;
-
-        if ([UIDevice isIphones_4_4s]) {
-            // initial value used
-        } else if ([UIDevice isIphones_5_5s_5c_SE]) {
-            // initial value used
-        } else if ([UIDevice isIphones_6_6s_7_8]) {
-            buttonTopPositionInitial = 10;
-        } else {
-            calendarYInitial = 40;
-            buttonTopPositionInitial = 47;
-        }
-        
-        int calendarY = calendarYInitial;
-        int buttonTopPosition = 35 + buttonTopPositionInitial;
-        int buttonBottomPosition = viewHeight - 105 - [self getAdsHeight];
-        
-        int leftPadding = 0;
-        if (viewWidth != viewWidth320) {
-            leftPadding = (viewWidth - viewWidth320) / 2.;
-        }
-        
-        /* _calendarScrollView */ {
-            int calendarHeight = viewHeight - calendarY;
-            
-            CGRect calendarScrollViewFrame = _calendarScrollView.frame;
-            calendarScrollViewFrame.origin.y = calendarY;
-            calendarScrollViewFrame.size.width = viewWidth;
-            calendarScrollViewFrame.size.height = calendarHeight;
-            _calendarScrollView.frame = calendarScrollViewFrame;
-        }
-        
-        /* _overlay */ {
-            CGRect overlayFrame = _overlay.frame;
-            overlayFrame.size.width = viewWidth;
-            overlayFrame.size.height = viewHeight;
-            _overlay.frame = overlayFrame;
-        }
-        
-        // ========== button top
-        
-        /* _btnNext */ {
-            CGRect btnNextFrame = _btnNext.frame;
-            btnNextFrame.origin.y = buttonTopPosition;
-            btnNextFrame.origin.x = viewWidth - btnNextFrame.size.width - 22;
-            _btnNext.frame = btnNextFrame;
-        }
-        
-        /* _btnPrev */ {
-            CGRect btnPrevFrame = _btnPrev.frame;
-            btnPrevFrame.origin.y = buttonTopPosition;
-            btnPrevFrame.origin.x = 22;
-            _btnPrev.frame = btnPrevFrame;
-        }
-        
-        // ========== button bottom
-        
-        /* _btnInfo */ {
-            CGRect btnInfoFrame = _btnInfo.frame;
-            btnInfoFrame.origin.x = (viewWidth / 4 * 3) + 10;
-            btnInfoFrame.origin.y = buttonBottomPosition;
-            _btnInfo.frame = btnInfoFrame;
-        }
-        
-        /* _btnMonth */ {
-            CGRect btnMonthFrame = _btnMonth.frame;
-            btnMonthFrame.origin.x = (viewWidth / 4 * 3) - btnMonthFrame.size.width - 10;
-            btnMonthFrame.origin.y = buttonBottomPosition;
-            _btnMonth.frame = btnMonthFrame;
-        }
-        
-        /* _yearNote */ {
-            CGRect yearNoteFrame = _yearNote.frame;
-            yearNoteFrame.size.width = viewWidth / 2;
-            yearNoteFrame.origin.x = 0;
-            yearNoteFrame.origin.y = buttonBottomPosition;
-            _yearNote.frame = yearNoteFrame;
-            _yearNote.text = [NSString stringWithFormat:@"%d Masehi\n%@ - %@ Hijriyah", [Constant getCurrentYear], [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
-            _yearNote.textColor = [UIColor withHexString:@"454744"];
-            _yearNote.textAlignment = NSTextAlignmentCenter;
-        }
-        
-        // ========== toolbar
-        
-        /* _toolbarView */ {
-            int viewHeight = self.view.frame.size.height;
-            
-            CGRect toolbarViewFrame = CGRectMake(0, viewHeight - [self getAdsHeight] - 70, viewWidth, 486 + [self getAdsHeight]);
-            _toolbarView.frame = toolbarViewFrame;
-            
-            CGRect toolbarViewBackgroundFrame = _toolbarViewBackground.frame;
-            toolbarViewBackgroundFrame.size.width = toolbarViewFrame.size.width;
-            _toolbarViewBackground.frame = toolbarViewBackgroundFrame;
-            _toolbarViewBackground.backgroundColor = _toolbarFastingOther.backgroundColor;
-            
-            [self prepareToolbarViewForIphone];
-        }
-        
-        /* _toolbarView button */ {
-            UIButton *toolbarButton = (UIButton *)[_toolbarView viewWithTag:1];
-            CGRect toolbarButtonFrame = toolbarButton.frame;
-            toolbarButtonFrame.size.width = viewWidth;
-            toolbarButton.frame = toolbarButtonFrame;
-        }
-        
-        /* _toolbarTrigger */ {
-            CGRect toolbarTriggerFrame = _toolbarTrigger.frame;
-            toolbarTriggerFrame.origin.x = (viewWidth - toolbarTriggerFrame.size.width) / 2;
-            _toolbarTrigger.frame = toolbarTriggerFrame;
-        }
-        
-        /* _toolbarBorder */ {
-            CGRect toolbarBorderFrame = _toolbarBorder.frame;
-            toolbarBorderFrame.size.width = viewWidth;
-            _toolbarBorder.frame = toolbarBorderFrame;
-            
-            UITextView *toolbarBorderText = (UITextView *)_toolbarBorder.subviews.firstObject;
-            CGRect toolbarBorderTextFrame = toolbarBorderText.frame;
-            toolbarBorderTextFrame.origin.x = 10;
-            toolbarBorderTextFrame.size.width = viewWidth - (toolbarBorderTextFrame.origin.x * 2);
-            toolbarBorderText.frame = toolbarBorderTextFrame;
-        }
-        
-        /* _toolbarViewContent */ {
-            CGRect toolbarBorderFrame = _toolbarViewContent.frame;
-            toolbarBorderFrame.origin.x = leftPadding;
-            _toolbarViewContent.frame = toolbarBorderFrame;
-            
-            for (UIView *each in _toolbarViewContent.subviews) {
-                UIView *eachCover = each.subviews.firstObject;
-                
-                eachCover.layer.cornerRadius = 4.;
-                eachCover.clipsToBounds = YES;
-            }
-        }
-        
-        /* _toolbarFastingOther */ {
-            CGRect toolbarFastingOtherFrame = _toolbarFastingOther.frame;
-            toolbarFastingOtherFrame.origin.x = leftPadding;
-            _toolbarFastingOther.frame = toolbarFastingOtherFrame;
-        }
-        
-        self.view.backgroundColor = [UIColor withHexString:@"f1f2f4"];
         [self prepareFastingViewForIphone];
     }
     
@@ -385,8 +178,157 @@
 }
     
 - (void)prepareFastingViewForIphone {
-    int viewWidth320 = 320;
+    int viewHeight = self.view.frame.size.height;
     int viewWidth = self.view.frame.size.width;
+    
+    NSLog(@"view size %d %d", viewWidth, viewHeight);
+    
+    int viewWidth320 = 320;
+    
+    int calendarYInitial = 0;
+    int buttonTopPositionInitial = 0;
+
+    if ([UIDevice isIphones_4_4s]) {
+        // initial value used
+    } else if ([UIDevice isIphones_5_5s_5c_SE]) {
+        // initial value used
+    } else if ([UIDevice isIphones_6_6s_7_8]) {
+        buttonTopPositionInitial = 10;
+    } else {
+        calendarYInitial = 40;
+        buttonTopPositionInitial = 47;
+    }
+    
+    int calendarY = calendarYInitial;
+    int buttonTopPosition = 35 + buttonTopPositionInitial;
+    int buttonBottomPosition = viewHeight - 105 - [self getAdsHeight];
+    
+    int leftPadding = 0;
+    if (viewWidth != viewWidth320) {
+        leftPadding = (viewWidth - viewWidth320) / 2.;
+    }
+    
+    /* _calendarScrollView */ {
+        int calendarHeight = viewHeight - calendarY;
+        
+        CGRect calendarScrollViewFrame = _calendarScrollView.frame;
+        calendarScrollViewFrame.origin.y = calendarY;
+        calendarScrollViewFrame.size.width = viewWidth;
+        calendarScrollViewFrame.size.height = calendarHeight;
+        _calendarScrollView.frame = calendarScrollViewFrame;
+    }
+    
+    /* _overlay */ {
+        CGRect overlayFrame = _overlay.frame;
+        overlayFrame.size.width = viewWidth;
+        overlayFrame.size.height = viewHeight;
+        _overlay.frame = overlayFrame;
+    }
+    
+    // ========== button top
+    
+    /* _btnNext */ {
+        CGRect btnNextFrame = _btnNext.frame;
+        btnNextFrame.origin.y = buttonTopPosition;
+        btnNextFrame.origin.x = viewWidth - btnNextFrame.size.width - 22;
+        _btnNext.frame = btnNextFrame;
+    }
+    
+    /* _btnPrev */ {
+        CGRect btnPrevFrame = _btnPrev.frame;
+        btnPrevFrame.origin.y = buttonTopPosition;
+        btnPrevFrame.origin.x = 22;
+        _btnPrev.frame = btnPrevFrame;
+    }
+    
+    // ========== button bottom
+    
+    /* _btnInfo */ {
+        CGRect btnInfoFrame = _btnInfo.frame;
+        btnInfoFrame.origin.x = (viewWidth / 4 * 3) + 10;
+        btnInfoFrame.origin.y = buttonBottomPosition;
+        _btnInfo.frame = btnInfoFrame;
+    }
+    
+    /* _btnMonth */ {
+        CGRect btnMonthFrame = _btnMonth.frame;
+        btnMonthFrame.origin.x = (viewWidth / 4 * 3) - btnMonthFrame.size.width - 10;
+        btnMonthFrame.origin.y = buttonBottomPosition;
+        _btnMonth.frame = btnMonthFrame;
+    }
+    
+    /* _yearNote */ {
+        CGRect yearNoteFrame = _yearNote.frame;
+        yearNoteFrame.size.width = viewWidth / 2;
+        yearNoteFrame.origin.x = 0;
+        yearNoteFrame.origin.y = buttonBottomPosition;
+        _yearNote.frame = yearNoteFrame;
+        _yearNote.text = [NSString stringWithFormat:@"%d Masehi\n%@ - %@ Hijriyah", [Constant getCurrentYear], [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
+        _yearNote.textColor = [UIColor withHexString:@"454744"];
+        _yearNote.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    // ========== toolbar
+    
+    /* _toolbarView */ {
+        int viewHeight = self.view.frame.size.height;
+        
+        CGRect toolbarViewFrame = CGRectMake(0, viewHeight - [self getAdsHeight] - 70, viewWidth, 486 + [self getAdsHeight]);
+        _toolbarView.frame = toolbarViewFrame;
+        
+        CGRect toolbarViewBackgroundFrame = _toolbarViewBackground.frame;
+        toolbarViewBackgroundFrame.size.width = toolbarViewFrame.size.width;
+        _toolbarViewBackground.frame = toolbarViewBackgroundFrame;
+        _toolbarViewBackground.backgroundColor = _toolbarFastingOther.backgroundColor;
+        
+        [self prepareToolbarViewForIphone];
+    }
+    
+    /* _toolbarView button */ {
+        UIButton *toolbarButton = (UIButton *)[_toolbarView viewWithTag:1];
+        CGRect toolbarButtonFrame = toolbarButton.frame;
+        toolbarButtonFrame.size.width = viewWidth;
+        toolbarButton.frame = toolbarButtonFrame;
+    }
+    
+    /* _toolbarTrigger */ {
+        CGRect toolbarTriggerFrame = _toolbarTrigger.frame;
+        toolbarTriggerFrame.origin.x = (viewWidth - toolbarTriggerFrame.size.width) / 2;
+        _toolbarTrigger.frame = toolbarTriggerFrame;
+    }
+    
+    /* _toolbarBorder */ {
+        CGRect toolbarBorderFrame = _toolbarBorder.frame;
+        toolbarBorderFrame.size.width = viewWidth;
+        _toolbarBorder.frame = toolbarBorderFrame;
+        
+        UITextView *toolbarBorderText = (UITextView *)_toolbarBorder.subviews.firstObject;
+        CGRect toolbarBorderTextFrame = toolbarBorderText.frame;
+        toolbarBorderTextFrame.origin.x = 10;
+        toolbarBorderTextFrame.size.width = viewWidth - (toolbarBorderTextFrame.origin.x * 2);
+        toolbarBorderText.frame = toolbarBorderTextFrame;
+    }
+    
+    /* _toolbarViewContent */ {
+        CGRect toolbarBorderFrame = _toolbarViewContent.frame;
+        toolbarBorderFrame.origin.x = leftPadding;
+        _toolbarViewContent.frame = toolbarBorderFrame;
+        
+        for (UIView *each in _toolbarViewContent.subviews) {
+            UIView *eachCover = each.subviews.firstObject;
+            
+            eachCover.layer.cornerRadius = 4.;
+            eachCover.clipsToBounds = YES;
+        }
+    }
+    
+    /* _toolbarFastingOther */ {
+        CGRect toolbarFastingOtherFrame = _toolbarFastingOther.frame;
+        toolbarFastingOtherFrame.origin.x = leftPadding;
+        _toolbarFastingOther.frame = toolbarFastingOtherFrame;
+    }
+    
+    self.view.backgroundColor = [UIColor withHexString:@"f1f2f4"];
     
     int i = 0;
     
@@ -452,6 +394,80 @@
 }
     
 - (void)prepareFastingViewForIpad {
+    
+    CGRect containerFrame = _contentContainerView.frame;
+    containerFrame = CGRectMake(containerFrame.origin.x, containerFrame.origin.y, 768, 954);
+    _contentContainerView.frame = containerFrame;
+//    _contentContainerView.backgroundColor = UIColor.greenColor;
+     
+    
+    
+    int viewHeight = self.view.frame.size.height;
+    int viewWidth = self.view.frame.size.width;
+    
+    NSLog(@"view size %d %d", viewWidth, viewHeight);
+    
+    CGSize containerSize = CGSizeMake(768, (viewHeight > 1024) ? 960 : 840);
+    _calendarScrollView.frame = CGRectMake(
+        (viewWidth - 768) / 2,
+        110,
+        containerSize.width,
+        containerSize.height
+    );
+    _calendarScrollView.contentSize = CGSizeMake(
+        containerSize.width * 3,
+        containerSize.height
+    );
+    
+    int c = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            UIView *section = [_calendarScrollView viewWithTag:10 + c];
+            c++;
+            
+            CGRect sectionFrame = CGRectZero;
+            sectionFrame.size.width = 320;
+            sectionFrame.size.height = 400;
+            sectionFrame.origin.x = (containerSize.width * i) + ((j % 2) == 0 ? 0 : (containerSize.width / 2));
+            sectionFrame.origin.y = (j < 2) ? 0 : (containerSize.height / 2);
+            
+            // append left margin
+            sectionFrame.origin.x += ((containerSize.width / 2) - sectionFrame.size.width) / 2;
+            
+            // append top margin
+            sectionFrame.origin.y += ((containerSize.height / 2) - sectionFrame.size.height) / 2;
+            
+            section.frame = sectionFrame;
+//            section.backgroundColor = UIColor.redColor;
+        }
+    }
+    
+    /* label */ {
+        UILabel *labelYear1 = [_labelYear.subviews objectAtIndex:0];
+        labelYear1.text = [NSString stringWithFormat:@"%d Masehi", [Constant getCurrentYear]];
+        UILabel *labelYear2 = [_labelYear.subviews objectAtIndex:1];
+        labelYear2.text = [NSString stringWithFormat:@"%@ - %@ Hijriyah", [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
+    }
+    
+    int btnPadding = ((viewWidth - containerSize.width) / 2);
+    if (btnPadding < 10) {
+        btnPadding = 20;
+    }
+    
+    /* _btnPrev */ {
+        CGRect f = _btnPrev.frame;
+        f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
+        f.origin.x = 0 + btnPadding;
+        _btnPrev.frame = f;
+    }
+    
+    /* _btnNext */ {
+        CGRect f = _btnNext.frame;
+        f.origin.y = containerSize.height / 2 + _calendarScrollView.frame.origin.y - 15;
+        f.origin.x = viewWidth - f.size.width - btnPadding;
+        _btnNext.frame = f;
+    }
+    
     int i = 0;
     
     UIView *block;

@@ -348,6 +348,7 @@
                         <outlet property="_btnNext" destination="jGd-uN-gst" id="ue8-DU-XSO"/>
                         <outlet property="_btnPrev" destination="SlJ-Ha-k87" id="xpJ-GU-7ig"/>
                         <outlet property="_calendarScrollView" destination="Gf2-Rt-C67" id="SA5-AS-ob0"/>
+                        <outlet property="_contentContainerView" destination="xnR-0c-hxP" id="n8a-UE-La1"/>
                         <outlet property="_imageTitle" destination="vTD-Wu-7I5" id="WJh-wn-Omu"/>
                         <outlet property="_labelYear" destination="0gj-ng-KpE" id="Bck-EH-Ij7"/>
                         <outlet property="adsBannerView" destination="SeR-WU-89w" id="OLh-xv-cHZ"/>
