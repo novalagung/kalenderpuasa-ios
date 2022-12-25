@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)prepareFastingNotification:(NSArray *)fastDateAll;
-- (void)prepareCalendarEvent:(NSArray *)fastDateAll;
+- (void)prepareIOSFastingNotification:(NSArray *)fastDateAll;
+- (void)prepareIOSCalendarEvent:(NSArray *)fastDateAll;
 
 @end

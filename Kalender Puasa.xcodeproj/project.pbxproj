@@ -56,9 +56,7 @@
 		F109A88827686319009EC0CF /* RateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86E27686317009EC0CF /* RateHelper.m */; };
 		F109A88927686319009EC0CF /* UIColor+Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87027686317009EC0CF /* UIColor+Extends.m */; };
 		F109A88A27686319009EC0CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F109A87127686317009EC0CF /* GoogleService-Info.plist */; };
-		F109A88B27686319009EC0CF /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87227686317009EC0CF /* CoreDataManager.m */; };
 		F109A88C27686319009EC0CF /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87327686317009EC0CF /* InfoViewController.m */; };
-		F109A88D27686319009EC0CF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F109A87427686317009EC0CF /* Model.xcdatamodeld */; };
 		F109A89127686319009EC0CF /* UIDevice+Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A87E27686318009EC0CF /* UIDevice+Extends.m */; };
 		F109A89227686319009EC0CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A88427686318009EC0CF /* ViewController.m */; };
 		F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A88527686318009EC0CF /* MonthPickerViewController.m */; };
@@ -136,15 +134,12 @@
 		F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		F109A863276862F4009EC0CF /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		F109A86B27686317009EC0CF /* FastingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastingViewController.m; sourceTree = "<group>"; };
-		F109A86C27686317009EC0CF /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		F109A86D27686317009EC0CF /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		F109A86E27686317009EC0CF /* RateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateHelper.m; sourceTree = "<group>"; };
 		F109A86F27686317009EC0CF /* MonthPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthPickerViewController.h; sourceTree = "<group>"; };
 		F109A87027686317009EC0CF /* UIColor+Extends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extends.m"; sourceTree = "<group>"; };
 		F109A87127686317009EC0CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F109A87227686317009EC0CF /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		F109A87327686317009EC0CF /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		F109A87527686317009EC0CF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F109A87727686318009EC0CF /* UIColor+Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extends.h"; sourceTree = "<group>"; };
 		F109A87927686318009EC0CF /* UIDevice+Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extends.h"; sourceTree = "<group>"; };
 		F109A87B27686318009EC0CF /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -328,11 +323,8 @@
 		F109A899276885BB009EC0CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F109A87427686317009EC0CF /* Model.xcdatamodeld */,
 				F109A88127686318009EC0CF /* Constant.h */,
 				F109A86D27686317009EC0CF /* Constant.m */,
-				F109A86C27686317009EC0CF /* CoreDataManager.h */,
-				F109A87227686317009EC0CF /* CoreDataManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -566,13 +558,11 @@
 			files = (
 				F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */,
 				F109A89127686319009EC0CF /* UIDevice+Extends.m in Sources */,
-				F109A88B27686319009EC0CF /* CoreDataManager.m in Sources */,
 				F109A88C27686319009EC0CF /* InfoViewController.m in Sources */,
 				F109A88627686319009EC0CF /* FastingViewController.m in Sources */,
 				F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */,
 				F109A88827686319009EC0CF /* RateHelper.m in Sources */,
 				F109A89227686319009EC0CF /* ViewController.m in Sources */,
-				F109A88D27686319009EC0CF /* Model.xcdatamodeld in Sources */,
 				F109A88927686319009EC0CF /* UIColor+Extends.m in Sources */,
 				F109A7FB2768619C009EC0CF /* main.m in Sources */,
 				F109A88727686319009EC0CF /* Constant.m in Sources */,
@@ -949,19 +939,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F109A87427686317009EC0CF /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F109A87527686317009EC0CF /* Model.xcdatamodel */,
-			);
-			currentVersion = F109A87527686317009EC0CF /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F109A7DD2768619B009EC0CF /* Project object */;
 }

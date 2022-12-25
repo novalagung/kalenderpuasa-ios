@@ -14,8 +14,6 @@
 #import "UIColor+Extends.h"
 #import "UIDevice+Extends.h"
 #import "NVDate.h"
-	
-@import GoogleMobileAds;
 
 #define HEIGHT_IPHONE5 568
 #define HEIGHT_IPHONE6 667
@@ -25,7 +23,7 @@
 #define WIDTH_IPHONE6 375
 #define WIDTH_IPHONE6P 414
 
-@interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate, GADBannerViewDelegate> {
+@interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate> {
     NSMutableDictionary *_fastings;
     NSArray *_fastingBaseColors;
     NSArray *_fastingBaseColorsForToolbar;
@@ -49,64 +47,70 @@
     IBOutlet UIView *_contentContainerView;
     IBOutlet UIScrollView *_calendarScrollView;
     
-    UIView *currentDay;
-    
-    BOOL isViewAppeared;
-    CGPoint startTapPoint;
-    
-    MonthPickerViewController *_picker;
-    BOOL isViewDidLoad;
-    BOOL isViewDidLayoutSubviews;
-    BOOL fromTop;
-    
-    BOOL showHijriyyahDay;
-    BOOL isFavoriteMode;
-    BOOL adLoaded;
-    IBOutlet UIView *bannerView;
-    __weak IBOutlet GADBannerView *adsBannerView;
-    IBOutlet NSLayoutConstraint *bannerViewConstraintHeight;
-    
     IBOutlet UIButton *btnRateNo;
     IBOutlet UIButton *btnRateYes;
     IBOutlet UIView *viewRate;
     IBOutlet NSLayoutConstraint *constraintHeightViewRate;
+    
+    BOOL isViewDidLoad;
+    BOOL isViewDidLayoutSubviews;
+    BOOL isViewDidAppear;
+    
+    MonthPickerViewController *_picker;
+    
+    UIView *currentDay;
+    
+    CGPoint startTapPoint;
+    BOOL fromTop;
 }
 @end
 
 @implementation ViewController
     
 - (void)viewDidLoad {
-    isViewDidLoad = YES;
-    fromTop = NO;
-    showHijriyyahDay = YES;
-    
     [super viewDidLoad];
     
-    [self prepareFasting];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate prepareFastingNotification: _fastDateAll];
-    [appDelegate prepareCalendarEvent: _fastDateAll];
+    if (isViewDidLoad) return;
+    isViewDidLoad = true;
 }
-    
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    if (isViewDidLayoutSubviews) { return; }
+    if (isViewDidLayoutSubviews) return;
     isViewDidLayoutSubviews = true;
-    
-    _toolbarFastingOther.backgroundColor = [UIColor withHexString:@"f2f2f2"];
     
     _overlay.hidden = YES;
     _overlay.alpha = 0;
     
+    _toolbarFastingOther.backgroundColor = [UIColor withHexString:@"f2f2f2"];
+    
+    _fastings = [[NSMutableDictionary alloc] initWithDictionary:[Constant getFastingDates]];
+    _fastingBaseColors = [[NSArray alloc] initWithArray:[Constant getFastingBaseColors]];
+    _fastingsName = [[NSArray alloc] initWithArray:[Constant getFastingNames]];
+    _fastingBaseColorsForToolbar = @[_fastingBaseColors[5],
+                                     _fastingBaseColors[4],
+                                     _fastingBaseColors[0],
+                                     _fastingBaseColors[1],
+                                     _fastingBaseColors[2],
+                                     _fastingBaseColors[3]];
+    _fastDateAll = [NSMutableArray array];
+
     if (![UIDevice isIPad]) {
         [self prepareFastingViewForIphone];
     } else {
         [self prepareFastingViewForIpad];
     }
 
-    [self prepareCalendarView];
+    long currentMonthIndex = ([[self getDateComponents] month] - 1);
+    if ([UIDevice isIPad]) currentMonthIndex = floor(currentMonthIndex / 4);
+    
+    [UIView animateWithDuration:.3 animations:^{
+        self->_calendarScrollView.contentOffset = CGPointMake(currentMonthIndex * self->_calendarScrollView.frame.size.width, 0);
+    }];
+    
+    _btnPrev.enabled = !(currentMonthIndex <= 0);
+    _btnNext.enabled = !(currentMonthIndex >= [self maxPage]);
     
     btnRateNo.backgroundColor = [UIColor clearColor];
     [btnRateNo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -121,58 +125,27 @@
     btnRateYes.layer.borderColor = [UIColor whiteColor].CGColor;
     
     [self.view bringSubviewToFront:viewRate.superview];
-    
-    if ([self getAdsHeight] == 0) {
-        bannerView.hidden = YES;
-    } else {
-        bannerViewConstraintHeight.constant = [self getAdsHeight];
-        [bannerView layoutIfNeeded];
-        [bannerView layoutSubviews];
-    }
 }
     
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (!isViewDidLoad) return;
-    isViewDidLoad = NO;
+    if (isViewDidAppear) return;
+    isViewDidAppear = YES;
     
     [RateHelper whenRateViewTimeDo:^{
         self->viewRate.superview.hidden = false;
     }];
     
-    [self prepareBanner];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate prepareIOSFastingNotification: _fastDateAll];
+    [appDelegate prepareIOSCalendarEvent: _fastDateAll];
 }
     
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-    
-- (void)prepareCalendarView {
-    long currentMonthIndex = ([[self getDateComponents] month] - 1);
-    if ([UIDevice isIPad]) currentMonthIndex = floor(currentMonthIndex / 4);
-    
-    [UIView animateWithDuration:.3 animations:^{
-        self->_calendarScrollView.contentOffset = CGPointMake(currentMonthIndex * self->_calendarScrollView.frame.size.width, 0);
-    }];
-    
-    _btnPrev.enabled = !(currentMonthIndex <= 0);
-    _btnNext.enabled = !(currentMonthIndex >= [self maxPage]);
-}
 
-- (void)prepareFasting {
-    _fastings = [[NSMutableDictionary alloc] initWithDictionary:[Constant getFastingDates]];
-    _fastingBaseColors = [[NSArray alloc] initWithArray:[Constant getFastingBaseColors]];
-    _fastingsName = [[NSArray alloc] initWithArray:[Constant getFastingNames]];
-    _fastingBaseColorsForToolbar = @[_fastingBaseColors[5],
-                                     _fastingBaseColors[4],
-                                     _fastingBaseColors[0],
-                                     _fastingBaseColors[1],
-                                     _fastingBaseColors[2],
-                                     _fastingBaseColors[3]];
-    _fastDateAll = [NSMutableArray array];
-}
-    
 - (void)prepareFastingViewForIphone {
     int viewHeight = self.view.frame.size.height;
     int viewWidth = self.view.frame.size.width;
@@ -197,7 +170,7 @@
     
     int calendarY = calendarYInitial;
     int buttonTopPosition = 35 + buttonTopPositionInitial;
-    int buttonBottomPosition = viewHeight - 105 - [self getAdsHeight];
+    int buttonBottomPosition = viewHeight - 105;
     
     int leftPadding = 0;
     if (viewWidth != viewWidth320) {
@@ -269,7 +242,7 @@
     /* _toolbarView */ {
         int viewHeight = self.view.frame.size.height;
         
-        CGRect toolbarViewFrame = CGRectMake(0, viewHeight - [self getAdsHeight] - 70, viewWidth, 486 + [self getAdsHeight]);
+        CGRect toolbarViewFrame = CGRectMake(0, viewHeight - 70, viewWidth, 486);
         _toolbarView.frame = toolbarViewFrame;
         
         CGRect toolbarViewBackgroundFrame = _toolbarViewBackground.frame;
@@ -468,23 +441,6 @@
     }
 }
 
-- (CGFloat)getAdsHeight {
-    if (![Constant isAdsEnabled]) {
-        return 0;
-    }
-
-    CGFloat deviceHeight = UIScreen.mainScreen.bounds.size.height;
-    if (deviceHeight <= 568) {
-        return 0;
-    }
-    
-    if (deviceHeight > 568 && deviceHeight <= 720) {
-        return 50;
-    } else {
-        return 90;
-    }
-}
-    
 - (void)prepareToolbarViewForIphone {
     _overlay.backgroundColor = [UIColor withRGBA:@"0,0,0,.9"];
     _overlay.hidden = YES;
@@ -511,7 +467,7 @@
     
 - (IBAction)doCancelToolbar:(id)sender {
     int viewHeight = self.view.frame.size.height;
-    int toolbarViewStartPosition = viewHeight - [self getAdsHeight] - 70;
+    int toolbarViewStartPosition = viewHeight - 70;
     
     if (_toolbarView.frame.origin.y == toolbarViewStartPosition) {
         return;
@@ -599,7 +555,7 @@
         
         [view addSubview:dayLabel];
         
-        if (showHijriyyahDay) {
+        /* hijriyah */ {
             NSArray *hdays = [month valueForKey:@"hijriyahday1"];
             
             NSString *previousMonthName = @"";
@@ -865,7 +821,7 @@
     
 - (IBAction)tapGestureHandler:(UITapGestureRecognizer *)sender {
     int viewHeight = self.view.frame.size.height;
-    int toolbarViewStartPosition = viewHeight - [self getAdsHeight] - 70;
+    int toolbarViewStartPosition = viewHeight - 70;
     
     if (_toolbarView.frame.origin.y == toolbarViewStartPosition) {
         _overlay.hidden = NO;
@@ -893,7 +849,7 @@
     
 - (IBAction)panGestureHandler:(UIPanGestureRecognizer *)recognizer {
     int viewHeight = self.view.frame.size.height;
-    int toolbarViewStartPosition = viewHeight - [self getAdsHeight] - 70;
+    int toolbarViewStartPosition = viewHeight - 70;
     int toolbarViewWidth = _toolbarView.frame.size.width;
     int toolbarViewHeight = _toolbarView.frame.size.height;
     
@@ -1067,61 +1023,7 @@
     
     [selectedLabel addSubview:currentDay];
 }
-    
-    
-    
-#pragma mark - popup modal ad
 
-- (void)prepareBanner {
-    if (![Constant isAdsEnabled]) {
-        return;
-    }
-
-    CGFloat deviceHeight = UIScreen.mainScreen.bounds.size.height;
-    if (deviceHeight <= 400) {
-        return;
-    }
-    
-    CGFloat adsHeight = [self getAdsHeight];
-    NSLog(@"ADS HEIGHT %f", adsHeight);
-    
-    adLoaded = NO;
-    bannerViewConstraintHeight.constant = adsHeight;
-    [bannerView.superview layoutSubviews];
-    [bannerView layoutIfNeeded];
-    
-    if ([UIDevice isIPad]) {
-        [bannerView setBackgroundColor:[UIColor whiteColor]];
-    } else {
-        [bannerView setBackgroundColor:[UIColor withHexString:@"#242524"]];
-    }
-    
-    adsBannerView.adUnitID = [Constant getAdMobPubID];
-    adsBannerView.adSize = kGADAdSizeSmartBannerPortrait;
-    
-    GADRequest *request = [GADRequest request];
-    
-    [adsBannerView loadRequest:request];
-}
-    
-- (void)adViewDidReceiveAd:(GADBannerView *)view {
-    if (adLoaded) return;
-    
-    adLoaded = YES;
-    isViewDidLoad = NO;
-}
-
-
-- (void)bannerView:(nonnull GADBannerView *)bannerView didFailToReceiveAdWithError:(nonnull NSError *)error {
-    adLoaded = NO;
-    
-    NSLog(@"ads error %@", error.localizedDescription);
-}
-    
-- (BOOL)isAdLoaded {
-    return adLoaded;
-}
-    
 - (IBAction)doDismissRate:(id)sender {
     [RateHelper dontRateToday];
     viewRate.superview.hidden = true;

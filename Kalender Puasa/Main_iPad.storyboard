@@ -210,28 +210,6 @@
                                     <constraint firstItem="0gj-ng-KpE" firstAttribute="top" secondItem="xnR-0c-hxP" secondAttribute="top" constant="50" id="xHx-NV-S6g"/>
                                 </constraints>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEm-kO-k4b">
-                                <rect key="frame" x="20" y="1024" width="728" height="0.0"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeR-WU-89w" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="0.0"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ZCd-zl-wfp"/>
-                                            <outlet property="rootViewController" destination="BYZ-38-t0r" id="Zsp-XC-KLQ"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="SeR-WU-89w" firstAttribute="leading" secondItem="KEm-kO-k4b" secondAttribute="leading" id="1F0-Ac-vpB"/>
-                                    <constraint firstAttribute="width" constant="728" id="ea6-o0-3bc"/>
-                                    <constraint firstAttribute="bottom" secondItem="SeR-WU-89w" secondAttribute="bottom" id="fLD-Xu-aBu"/>
-                                    <constraint firstAttribute="trailing" secondItem="SeR-WU-89w" secondAttribute="trailing" id="fVP-CU-e3b"/>
-                                    <constraint firstItem="SeR-WU-89w" firstAttribute="top" secondItem="KEm-kO-k4b" secondAttribute="top" id="hZg-x7-IAu"/>
-                                    <constraint firstAttribute="height" id="uID-91-lja"/>
-                                </constraints>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWE-tq-a2z">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <subviews>
@@ -322,9 +300,7 @@
                         <constraints>
                             <constraint firstItem="xnR-0c-hxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kes-E8-wQh"/>
                             <constraint firstAttribute="trailing" secondItem="oWE-tq-a2z" secondAttribute="trailing" id="bYe-aS-nj7"/>
-                            <constraint firstItem="KEm-kO-k4b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bgU-lb-Mt5"/>
                             <constraint firstItem="xnR-0c-hxP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-25" id="cJE-2i-iJ1"/>
-                            <constraint firstItem="znq-7O-0L2" firstAttribute="top" secondItem="KEm-kO-k4b" secondAttribute="bottom" id="cy5-f8-8zw"/>
                             <constraint firstItem="oWE-tq-a2z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i7m-OX-pv7"/>
                             <constraint firstItem="oWE-tq-a2z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="p5x-Hi-dG9"/>
                             <constraint firstAttribute="bottom" secondItem="oWE-tq-a2z" secondAttribute="bottom" id="uiX-py-Ct7"/>
@@ -341,9 +317,6 @@
                         <outlet property="_contentContainerView" destination="xnR-0c-hxP" id="n8a-UE-La1"/>
                         <outlet property="_imageTitle" destination="vTD-Wu-7I5" id="WJh-wn-Omu"/>
                         <outlet property="_labelYear" destination="0gj-ng-KpE" id="Bck-EH-Ij7"/>
-                        <outlet property="adsBannerView" destination="SeR-WU-89w" id="OLh-xv-cHZ"/>
-                        <outlet property="bannerView" destination="KEm-kO-k4b" id="MHh-yr-jDi"/>
-                        <outlet property="bannerViewConstraintHeight" destination="uID-91-lja" id="nQV-eK-eoE"/>
                         <outlet property="btnRateNo" destination="HMm-mR-LvM" id="obI-UR-NmT"/>
                         <outlet property="btnRateYes" destination="BpS-Ba-GhG" id="5sC-8w-gpl"/>
                         <outlet property="constraintHeightViewRate" destination="AG7-j1-xDg" id="HZX-fb-rgM"/>

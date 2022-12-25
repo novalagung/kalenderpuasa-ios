@@ -7,7 +7,6 @@ target 'Kalender Puasa' do
 
   # Pods for Kalender Puasa
   pod 'NVDate', '1.0.0'
-  pod 'Google-Mobile-Ads-SDK', '~> 9.13'
   pod 'FirebaseAnalytics', '~> 10.2'
 
 end

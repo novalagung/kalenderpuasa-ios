@@ -13,8 +13,6 @@
 
 - (void)prepareForCurrentDay;
 - (void)prepareCalendarView;
-- (void)prepareBanner;
-- (BOOL)isAdLoaded;
 
 @property (nonatomic, strong) NSMutableArray *fastDateAll;
 

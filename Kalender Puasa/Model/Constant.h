@@ -20,9 +20,6 @@
 @interface Constant: NSObject
 
 + (NSString *)getItmsUrl;
-+ (NSString *)getAdMobAppID;
-+ (NSString *)getAdMobPubID;
-+ (BOOL)isAdsEnabled;
 + (int)getCurrentYear;
 + (NSArray *)getDaysName;
 + (NSArray *)getMonthsBaseColor;

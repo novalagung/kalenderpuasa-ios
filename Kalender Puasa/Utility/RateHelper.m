@@ -54,7 +54,7 @@ static NSString *rateTimeKey = @"rate-time";
     [self setRateStatus:2];
     
     NSURL *url = [NSURL URLWithString:Constant.getItmsUrl];
-    [UIApplication.sharedApplication openURL:url];
+    [UIApplication.sharedApplication openURL:url options:nil completionHandler:nil];
     
     completion();
 }

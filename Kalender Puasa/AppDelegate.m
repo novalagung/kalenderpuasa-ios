@@ -11,7 +11,6 @@
 #import "Constant.h"
 #import "NVDate.h"
 
-@import GoogleMobileAds;
 @import FirebaseCore;
 
 @implementation AppDelegate {
@@ -23,12 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [FIRApp configure];
-    [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
 
-    #if TARGET_IPHONE_SIMULATOR
-    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[GADSimulatorID];
-    #endif
-    
     return YES;
 }
                             
@@ -47,22 +41,15 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     wasInactive = NO;
     
-//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
     @try {
         [(ViewController *)self.window.rootViewController prepareForCurrentDay];
-    } @catch (NSException *exception) { NSLog(@"error adding current day sign %@", exception); }
-    [(ViewController *)self.window.rootViewController prepareCalendarView];
+    } @catch (NSException *exception) {
+        NSLog(@"error adding current day sign %@", exception);
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
-}
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    if (wasInactive) {
-        [[[UIAlertView alloc] initWithTitle:@"Notifikasi" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-    }
 }
 
 - (void)authorizeCalendarEvent:(BOOL(^)(void))callback {
@@ -122,6 +109,10 @@
                         });
                     }];
                 } break;
+                case UNAuthorizationStatusProvisional:
+                    break;
+                case UNAuthorizationStatusEphemeral:
+                    break;
             }
         }];
     } else {
@@ -132,7 +123,7 @@
     }
 }
 
-- (void)prepareCalendarEvent:(NSArray *)fastDateAll {
+- (void)prepareIOSCalendarEvent:(NSArray *)fastDateAll {
     if (eventStore == nil) {
         eventStore = [[EKEventStore alloc] init];
     }
@@ -250,7 +241,7 @@
             NVDate *dueDateLast = [[NVDate alloc] initUsingDate:dueDate.date];
             [dueDateLast setHour:18];
             
-            EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+            EKEvent *event = [EKEvent eventWithEventStore:self->eventStore];
             event.calendar = calendarForEvent;
             event.title = message;
             event.startDate = dueDateStart.date;
@@ -282,7 +273,7 @@
             [event addAlarm:[EKAlarm alarmWithAbsoluteDate:alarmDateLast1DaysEvening.date]];
             
             NSError *err = nil;
-            [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+            [self->eventStore saveEvent:event span:EKSpanThisEvent error:&err];
 //            NSLog(@"========= save event: %@", event.title);
 //            if (err != nil) {
 //                NSLog(@"========= save event error: %@", err.localizedDescription);
@@ -290,7 +281,7 @@
         }
         
         NSError *err = nil;
-        [eventStore commit:&err];
+        [self->eventStore commit:&err];
 //        NSLog(@"========= commit store");
 //        if (err != nil) {
 //            NSLog(@"========= commit store error: %@", err.localizedDescription);
@@ -300,7 +291,7 @@
     }];
 }
 
-- (void)prepareFastingNotification:(NSArray *)fastDateAll {
+- (void)prepareIOSFastingNotification:(NSArray *)fastDateAll {
     
     [self authorizeNotification:^BOOL{
         
@@ -318,17 +309,11 @@
             NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *componentsForFireDate = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:nvDate.date];
             
-            [componentsForFireDate setHour:9];
+            [componentsForFireDate setHour:10];
             [self scheduledNotificationAt:[calendar dateFromComponents:componentsForFireDate] withData:fastDate];
             
-            [componentsForFireDate setHour:13];
-            [self scheduledNotificationAt:[calendar dateFromComponents:componentsForFireDate] withData:fastDate];
-            
-            [componentsForFireDate setHour:17];
-            [self scheduledNotificationAt:[calendar dateFromComponents:componentsForFireDate] withData:fastDate];
-            
-            [componentsForFireDate setHour:21];
-            [self scheduledNotificationAt:[calendar dateFromComponents:componentsForFireDate] withData:fastDate];
+//            [componentsForFireDate setHour:19];
+//            [self scheduledNotificationAt:[calendar dateFromComponents:componentsForFireDate] withData:fastDate];
             
             break;
         }

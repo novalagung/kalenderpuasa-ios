@@ -623,15 +623,7 @@ Copyright 2022 Google
    limitations under the License.
 
 
-## Google-Mobile-Ads-SDK
-
-Copyright 2022 Google
-
 ## GoogleAppMeasurement
-
-Copyright 2022 Google
-
-## GoogleUserMessagingPlatform
 
 Copyright 2022 Google
 

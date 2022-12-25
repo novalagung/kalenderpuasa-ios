@@ -547,31 +547,6 @@
                                     <outletCollection property="gestureRecognizers" destination="NCX-Bl-UoZ" appends="YES" id="00q-0d-3Gy"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiV-rW-rsj">
-                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-Aw-sTI" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="vYb-XM-5wW"/>
-                                            <outlet property="rootViewController" destination="vXZ-lx-hvc" id="XMe-rG-zBu"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="n8g-Aw-sTI" firstAttribute="top" secondItem="jiV-rW-rsj" secondAttribute="top" id="Fcj-DX-wJm"/>
-                                    <constraint firstItem="n8g-Aw-sTI" firstAttribute="top" secondItem="jiV-rW-rsj" secondAttribute="top" id="MUM-1w-zKN"/>
-                                    <constraint firstAttribute="bottom" secondItem="n8g-Aw-sTI" secondAttribute="bottom" id="ZbE-2y-LoI"/>
-                                    <constraint firstAttribute="trailing" secondItem="n8g-Aw-sTI" secondAttribute="trailing" id="acn-5p-QZa"/>
-                                    <constraint firstAttribute="height" constant="40" id="gUt-7k-dMJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="n8g-Aw-sTI" secondAttribute="bottom" id="mm6-YW-PcB"/>
-                                    <constraint firstAttribute="trailing" secondItem="n8g-Aw-sTI" secondAttribute="trailing" id="sbj-J1-ycd"/>
-                                    <constraint firstItem="n8g-Aw-sTI" firstAttribute="leading" secondItem="jiV-rW-rsj" secondAttribute="leading" id="uGq-ig-V2G"/>
-                                    <constraint firstItem="n8g-Aw-sTI" firstAttribute="leading" secondItem="jiV-rW-rsj" secondAttribute="leading" id="wdv-5w-mnn"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -580,13 +555,10 @@
                             <constraint firstItem="CAT-aQ-kbc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="C4l-Ui-gBg"/>
                             <constraint firstItem="CAT-aQ-kbc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="J6w-JD-aae"/>
                             <constraint firstItem="CAT-aQ-kbc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Rbs-DC-CF3"/>
-                            <constraint firstAttribute="bottom" secondItem="jiV-rW-rsj" secondAttribute="bottom" id="Rg2-6Y-hBz"/>
                             <constraint firstAttribute="trailing" secondItem="AEp-JH-D7e" secondAttribute="trailing" id="UiX-ba-Iob"/>
                             <constraint firstAttribute="trailing" secondItem="CAT-aQ-kbc" secondAttribute="trailing" id="Wpp-d0-qF6"/>
                             <constraint firstItem="3oc-He-BMN" firstAttribute="top" secondItem="CAT-aQ-kbc" secondAttribute="bottom" id="bQ2-wH-Vp2"/>
-                            <constraint firstItem="jiV-rW-rsj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bfi-0w-TO2"/>
                             <constraint firstItem="AEp-JH-D7e" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dr0-1e-DRM"/>
-                            <constraint firstAttribute="trailing" secondItem="jiV-rW-rsj" secondAttribute="trailing" id="eBG-Od-Pfp"/>
                             <constraint firstAttribute="trailing" secondItem="CAT-aQ-kbc" secondAttribute="trailing" id="pkz-bV-a8X"/>
                             <constraint firstAttribute="bottom" secondItem="CAT-aQ-kbc" secondAttribute="bottom" id="vzf-6d-325"/>
                             <constraint firstItem="AEp-JH-D7e" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="wJY-6a-lMr"/>
@@ -606,9 +578,6 @@
                         <outlet property="_toolbarViewBackground" destination="wBJ-kp-s2C" id="RmA-Nc-MPA"/>
                         <outlet property="_toolbarViewContent" destination="7Yk-W3-1JT" id="Y3H-HA-tyQ"/>
                         <outlet property="_yearNote" destination="pAx-KQ-PJ1" id="Ce4-as-Bxa"/>
-                        <outlet property="adsBannerView" destination="n8g-Aw-sTI" id="VCG-RG-5Oh"/>
-                        <outlet property="bannerView" destination="jiV-rW-rsj" id="tia-Nv-JSH"/>
-                        <outlet property="bannerViewConstraintHeight" destination="gUt-7k-dMJ" id="a2F-IM-vIO"/>
                         <outlet property="btnRateNo" destination="Toc-oR-kK0" id="lzM-KV-zag"/>
                         <outlet property="btnRateYes" destination="hKy-eU-OPs" id="Zn9-ut-ML0"/>
                         <outlet property="constraintHeightViewRate" destination="PTW-8j-S3J" id="Qj3-Ox-HpC"/>

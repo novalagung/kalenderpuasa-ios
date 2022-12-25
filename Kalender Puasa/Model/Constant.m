@@ -14,18 +14,6 @@
     return @"itms-apps://itunes.apple.com/app/id796222919";
 }
 
-+ (NSString *)getAdMobAppID {
-    return @"ca-app-pub-1417781814120840~5229182600";
-}
-
-+ (NSString *)getAdMobPubID {
-    return @"ca-app-pub-1417781814120840/6566315008";
-}
-
-+ (BOOL)isAdsEnabled {
-    return false;
-}
-
 + (int)getCurrentYear {
     return 2023;
 }
