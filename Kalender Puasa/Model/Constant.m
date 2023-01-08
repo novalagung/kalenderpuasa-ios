@@ -157,7 +157,7 @@
     [f setObject:@{@"category": @"Puasa Ayyamul Bidh",
                    @"month": @{@"JANUARI": @[@6, @8],
                                @"FEBRUARI": @[@4, @6],
-                               @"MARET": @[@5, @7],
+                               @"MARET": @[@6, @8],
                                @"MEI": @[@4, @6],
                                @"JUNI": @[@2, @4],
                                @"JULI": @[@3, @4, @31],
@@ -180,7 +180,7 @@
 }
 
 + (NSArray *)getFastingBaseColors {
-    return @[@"ed962d", @"212429", @"99489a", @"d31f5e", @"18a8df", @"c6e1a7"];
+    return @[@"ed962d", @"212429", @"99489a", @"f45d92", @"18a8df", @"c6e1a7"];
 }
 
 + (NSArray *)getNumbersInArabic {
