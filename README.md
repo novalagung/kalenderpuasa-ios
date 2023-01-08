@@ -1,6 +1,6 @@
-# Kalender Puasa iOS
+# Kalender Puasa (iOS & MacOS)
 
-Source code aplikasi ios Kalender Puasa. Tersedia di AppStore gratis untuk iPhone dan iPad.
+Source code aplikasi ios Kalender Puasa. Tersedia di AppStore gratis untuk iPhone, iPad, dan MacOS.
 
 ## AppStore Link
 
@@ -15,6 +15,11 @@ https://apps.apple.com/app/id796222919
 
 | ![](Res/Screenshots/ipad/preview%201%20-%20front.jpg) | ![](Res/Screenshots/ipad/preview%202%20-%20category.jpg) | ![](Res/Screenshots/ipad/preview%203%20-%20calendar.jpg) |
 |-|-|-|
+
+## MacOS Preview
+
+| ![](Res/Screenshots/mac/preview%201%20-%20front.png) | ![](Res/Screenshots/mac/preview%202%20-%20category.png) |
+|-|-|
 
 ## License
 
