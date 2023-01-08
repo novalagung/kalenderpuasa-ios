@@ -11,7 +11,9 @@
 @implementation UIDevice (Extends)
 
 + (BOOL)isIPad {
-    return [(NSString*)[UIDevice currentDevice].model rangeOfString:@"iPad"].location != NSNotFound;
+    NSString *deviceModel = (NSString*)[UIDevice currentDevice].model.lowercaseString;
+    return ([deviceModel rangeOfString:@"ipad"].location != NSNotFound)
+        || ([deviceModel rangeOfString:@"mac"].location != NSNotFound);
 }
 
 + (BOOL)isIphones_4_4s {
