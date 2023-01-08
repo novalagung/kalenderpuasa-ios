@@ -112,6 +112,8 @@
     _btnPrev.enabled = !(currentMonthIndex <= 0);
     _btnNext.enabled = !(currentMonthIndex >= [self maxPage]);
     
+    viewRate.backgroundColor = [UIColor withHexString:@"f58a78"];
+    
     btnRateNo.backgroundColor = [UIColor clearColor];
     [btnRateNo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     btnRateNo.layer.borderWidth = 2;
@@ -546,12 +548,12 @@
             dayLabel.textColor = [UIColor withHexString:@"212429"];
         }
         
-        [self fastingableFor:@"Puasa Ramadhan"          at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[0]] andTextColor:[UIColor withHexString:@"ffffff"]];
-        [self fastingableFor:@"Haram Berpuasa"          at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[1]] andTextColor:[UIColor withHexString:@"ffffff"]];
-        [self fastingableFor:@"Puasa Arafah"            at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[2]] andTextColor:[UIColor withHexString:@"ffffff"]];
-        [self fastingableFor:@"Puasa Asyura dan Tasu'a" at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[3]] andTextColor:[UIColor withHexString:@"ffffff"]];
-        [self fastingableFor:@"Puasa Ayyamul Bidh"      at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[4]] andTextColor:[UIColor withHexString:@"ffffff"]];
-        [self fastingableForMondayThursdayAt:dayNumber byLeftSpacing:left withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[5]] andTextColor:[UIColor withHexString:@"ffffff"]];
+        [self fastingableFor:@"Puasa Ramadhan"          at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[0]] andTextColor:[UIColor whiteColor]];
+        [self fastingableFor:@"Haram Berpuasa"          at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[1]] andTextColor:[UIColor whiteColor]];
+        [self fastingableFor:@"Puasa Arafah"            at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[2]] andTextColor:[UIColor whiteColor]];
+        [self fastingableFor:@"Puasa Asyura dan Tasu'a" at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[3]] andTextColor:[UIColor whiteColor]];
+        [self fastingableFor:@"Puasa Ayyamul Bidh"      at:dayNumber withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[4]] andTextColor:[UIColor whiteColor]];
+        [self fastingableForMondayThursdayAt:dayNumber byLeftSpacing:left withData:month inLabel:dayLabel withBGColor:[UIColor withHexString:_fastingBaseColors[5]] andTextColor:[UIColor blackColor]];
         
         [view addSubview:dayLabel];
         

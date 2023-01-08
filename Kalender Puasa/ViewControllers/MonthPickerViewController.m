@@ -32,15 +32,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self prepareButtons];
-    
+
     if ([UIDevice isIPad]) {
         _monthsContainer.layer.cornerRadius = 10.;
         _monthsContainer.clipsToBounds = YES;
     }
-}
-
-- (void)prepareButtons {
+    
     for (int i = 0; i < 12; i++) {
         UIButton *button = _monthsContainer.subviews[i];
         button.backgroundColor = [UIColor withHexString:_monthsBaseColor[i]];
