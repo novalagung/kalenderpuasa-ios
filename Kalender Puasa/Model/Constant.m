@@ -36,16 +36,16 @@
     
     [months setObject:@{@"name": @"FEBRUARI",
                         @"iname": @[
-                            @"8 Rajab",
-                            [NSString stringWithFormat:@"8 Sya'ban %@H", [self getYearsHijriyah][0]]
+                            @"10 Rajab",
+                            [NSString stringWithFormat:@"7 Sya'ban %@H", [self getYearsHijriyah][0]]
                         ],
                         @"left": @3,
                         @"length": @28,
-                        @"hijriyahday1": @[@21]} forKey:@"FEBRUARI"];
+                        @"hijriyahday1": @[@22]} forKey:@"FEBRUARI"];
     
     [months setObject:@{@"name": @"MARET",
                         @"iname": @[
-                            @"9 Sya'ban",
+                            @"8 Sya'ban",
                             [NSString stringWithFormat:@"9 Ramadhan %@H", [self getYearsHijriyah][0]]
                         ],
                         @"left": @3,
@@ -108,7 +108,7 @@
     
     [months setObject:@{@"name": @"OKTOBER",
                         @"iname": @[
-                            @"16 Rabi'ul Awal",
+                            @"15 Rabi'ul Awal",
                             [NSString stringWithFormat:@"16 Rabi'ul Akhir %@H", [self getYearsHijriyah][1]]
                         ],
                         @"left": @0,
@@ -160,7 +160,7 @@
                                @"MARET": @[@5, @7],
                                @"MEI": @[@4, @6],
                                @"JUNI": @[@2, @4],
-                               @"JULI": @[@3, @4, @5, @31],
+                               @"JULI": @[@3, @4, @31],
                                @"AGUSTUS": @[@1, @2, @30, @31],
                                @"SEPTEMBER": @[@1, @29, @30],
                                @"OKTOBER": @[@1, @28, @29, @30],
@@ -180,7 +180,7 @@
 }
 
 + (NSArray *)getFastingBaseColors {
-    return @[@"ed962d", @"212429", @"99489a", @"d31f5e", @"18a8df", @"3bb54a"];
+    return @[@"ed962d", @"212429", @"99489a", @"d31f5e", @"18a8df", @"c6e1a7"];
 }
 
 + (NSArray *)getNumbersInArabic {
@@ -203,18 +203,18 @@
 }
 
 + (NSArray *)getMonthsBaseColor {
-    return  @[@"1aa8e0",
-              @"95c73f",
-              @"fcb03f",
-              @"ef75a6",
-              @"1f8fce",
-              @"75b743",
-              @"ec9520",
-              @"ed3c84",
-              @"1276b1",
-              @"69a744",
-              @"ef6328", 
-              @"d22461"];
+    return  @[@"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78",
+              @"f58a78"];
 }
 
 + (NSArray *)getDaysName {

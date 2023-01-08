@@ -39,12 +39,8 @@
     [super viewDidLayoutSubviews];
     
     _copyright.text = [NSString stringWithFormat:@"© %d - Kalender Puasa", [Constant getCurrentYear]];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
     
-    _container.backgroundColor = [UIColor withHexString:@"f1f2f4"];
+    _container.backgroundColor = [UIColor withHexString:@"ffffff"];
     _btnShare.backgroundColor = [UIColor withHexString:@"1aa8e0"];
     _btnFeedback.backgroundColor = [UIColor withHexString:@"95c73f"];
     
