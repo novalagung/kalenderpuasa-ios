@@ -23,7 +23,7 @@
 #define WIDTH_IPHONE6 375
 #define WIDTH_IPHONE6P 414
 
-@interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate> {
+@interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate, UIAlertViewDelegate> {
     NSMutableDictionary *_fastings;
     NSArray *_fastingBaseColors;
     NSArray *_fastingBaseColorsForToolbar;
@@ -142,6 +142,17 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate prepareIOSFastingNotification: _fastDateAll];
     [appDelegate prepareIOSCalendarEvent: _fastDateAll];
+    
+    long year = [[NVDate alloc] initUsingToday].year;
+    if (year >= [Constant getCurrentYear]) {
+        NSString *alertTitle = [NSString stringWithFormat:@"Update %d belum tersedia", year];
+        NSString *alertMessage = [NSString stringWithFormat:@"Kalender Puasa untuk tahun %d belum tersedia. Aplikasi ini tidak bisa digunakan hingga update selanjutnya ready. Silakan tunggu.", year];
+        [[[UIAlertView alloc] initWithTitle:alertTitle
+                                    message:alertMessage
+                                   delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil, nil] show];
+    }
 }
     
 - (void)didReceiveMemoryWarning {
@@ -952,7 +963,7 @@
         fasting.colors = _fastingBaseColorsForToolbar;
     }
 }
-    
+
 #pragma mark - monthpicker delegate
     
 - (void)doPickMonthAtIndex:(int)index {
@@ -1036,5 +1047,11 @@
         self->viewRate.superview.hidden = true;
     }];
 }
-    
+
+#pragma mark - alertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    exit(0);
+}
+
 @end

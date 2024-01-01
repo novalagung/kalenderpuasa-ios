@@ -200,20 +200,20 @@
              @"NOVEMBER",
              @"DESEMBER"];
 }
-
+// purple @"967cb8",
 + (NSArray *)getMonthsBaseColor {
-    return  @[@"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78"];
+    return  @[@"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5",
+              @"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5",
+              @"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5"];
 }
 
 + (NSArray *)getDaysName {
