@@ -20,7 +20,7 @@ DerivedData
 *.ipa
 
 # CocoaPods
-# Pods
+Pods
 
 .env
 Kalender\ Puasa/GoogleService-Info.plist
