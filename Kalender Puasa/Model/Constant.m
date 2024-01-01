@@ -200,7 +200,7 @@
              @"NOVEMBER",
              @"DESEMBER"];
 }
-// purple @"967cb8",
+
 + (NSArray *)getMonthsBaseColor {
     return  @[@"ef6a9b",
               @"f9a37d",

@@ -61,66 +61,75 @@
     
     switch (authorizationStatus) {
         case EKAuthorizationStatusDenied:
+            break;
+
         case EKAuthorizationStatusRestricted:
             break;
             
+        case EKAuthorizationStatusWriteOnly:
+            callback();
+            break;
+
         case EKAuthorizationStatusAuthorized:
             callback();
             break;
             
         case EKAuthorizationStatusNotDetermined: {
-            [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (granted) {
-                        callback();
-                    }
-                });
-            }];
+            if (@available(iOS 17.0, *)) {
+                [eventStore requestWriteOnlyAccessToEventsWithCompletion:^(BOOL granted, NSError * _Nullable error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (granted) {
+                            callback();
+                        }
+                    });
+                }];
+            } else {
+                [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (granted) {
+                            callback();
+                        }
+                    });
+                }];
+            }
             break;
         }
     }
 }
 
 - (void)authorizeNotification:(BOOL(^)(void))callback {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        [center removeAllPendingNotificationRequests];
-        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-            switch ([settings authorizationStatus]) {
-                case UNAuthorizationStatusAuthorized:{
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center removeAllPendingNotificationRequests];
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        switch ([settings authorizationStatus]) {
+            case UNAuthorizationStatusAuthorized:{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback();
+                });
+            } break;
+                
+            case UNAuthorizationStatusDenied:
+                break;
+                
+            case UNAuthorizationStatusNotDetermined: {
+                UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"message"
+                                                                                          actions:@[]
+                                                                                intentIdentifiers:@[]
+                                                                                          options:UNNotificationCategoryOptionCustomDismissAction];
+                [center setNotificationCategories:[NSSet setWithObject:category]];
+                [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    NSLog(@"========== UNNotification allowed");
                     dispatch_async(dispatch_get_main_queue(), ^{
                         callback();
                     });
-                } break;
-                    
-                case UNAuthorizationStatusDenied:
-                    break;
-                    
-                case UNAuthorizationStatusNotDetermined: {
-                    UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"message"
-                                                                                              actions:@[]
-                                                                                    intentIdentifiers:@[]
-                                                                                              options:UNNotificationCategoryOptionCustomDismissAction];
-                    [center setNotificationCategories:[NSSet setWithObject:category]];
-                    [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                        NSLog(@"========== UNNotification allowed");
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            callback();
-                        });
-                    }];
-                } break;
-                case UNAuthorizationStatusProvisional:
-                    break;
-                case UNAuthorizationStatusEphemeral:
-                    break;
-            }
-        }];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication] cancelAllLocalNotifications];
-            callback();
-        });
-    }
+                }];
+            } break;
+            case UNAuthorizationStatusProvisional:
+                break;
+            case UNAuthorizationStatusEphemeral:
+                break;
+        }
+    }];
 }
 
 - (void)prepareIOSCalendarEvent:(NSArray *)fastDateAll {
@@ -132,8 +141,8 @@
         
         EKSource *localSource = nil;
         for (EKSource *source in self->eventStore.sources) {
-            NSLog(@"========= found source %@", source.title);
-            
+            NSLog(@"========= found source %@", source);
+
             if (source.sourceType == EKSourceTypeCalDAV && [source.title isEqualToString:@"iCloud"]) {
                 localSource = source;
                 break;
@@ -165,6 +174,8 @@
         
         if (shouldInitiateNewCalendar) {
             for (EKCalendar *each in [self->eventStore calendarsForEntityType:EKEntityTypeEvent]) {
+                NSLog(@"========= found calendar %@", each);
+                
                 if ([each.title containsString:calendarPrefix]) {
                     NSLog(@"========= deleting old calendar with identifier %@, name %@", each.calendarIdentifier, each.title);
                     NSError *err = nil;
@@ -318,9 +329,11 @@
             break;
         }
         
-        for (UILocalNotification *each in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-            NSLog(@"--------> scheduled notifications : %@ | %@", each, each.alertBody);
-        }
+        [[UNUserNotificationCenter currentNotificationCenter] getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+            for (UNNotificationRequest *r in requests) {
+                NSLog(@"--------> scheduled notifications : %@ | %@", r, r.content);
+            }
+        }];
         
         return true;
     }];
@@ -342,38 +355,19 @@
     // hack, test notification now
     date = [[[NSDate alloc] init] dateByAddingTimeInterval:5];
     
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        
-        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-        content.body = message;
-        content.categoryIdentifier = @"message";
-        content.sound = [UNNotificationSound defaultSound];
-        
-        NSDateComponents *dateMatching = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:date];
-        UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dateMatching repeats:false];
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[[NSUUID UUID] UUIDString] content:content trigger:trigger];
-        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-            NSLog(@"--------- %@ %@", message, date);
-        }];
-    } else {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = date;
-        notification.timeZone = [NSTimeZone localTimeZone];
-        notification.repeatInterval = NSCalendarUnitEra;
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.2")) {
-            notification.alertTitle = @"Reminder Puasa";
-            notification.alertBody = message;
-        } else {
-            notification.alertBody = message;
-        }
-        
-        NSLog(@"--------- %@ %@", message, date);
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    }
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.body = message;
+    content.categoryIdentifier = @"message";
+    content.sound = [UNNotificationSound defaultSound];
+    
+    NSDateComponents *dateMatching = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:date];
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dateMatching repeats:false];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[[NSUUID UUID] UUIDString] content:content trigger:trigger];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        NSLog(@"--------- %@ %@", message, date);
+    }];
 }
 
 @end
