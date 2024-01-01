@@ -63,6 +63,7 @@ platform :ios do
       xcodeproj: "#{APP_NAME}.xcodeproj",
       build_number: previous_build_number + 1
     )
+    push_to_git_remote
 
     cocoapods(
       clean_install: true

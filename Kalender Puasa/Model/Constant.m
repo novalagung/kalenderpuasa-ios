@@ -15,123 +15,123 @@
 }
 
 + (int)getCurrentYear {
-    return 2023;
+    return 2024;
 }
 
 + (NSArray *)getYearsHijriyah {
-    return @[@1444, @1445];
+    return @[@1445, @1446];
 }
 
 + (NSDictionary *)getMonthsMapping {
     NSMutableDictionary *months = [[NSMutableDictionary alloc] init];
     [months setObject:@{@"name": @"JANUARI",
                         @"iname": @[
-                            @"8 Jumadil Akhir",
-                            [NSString stringWithFormat:@"9 Rajab %@H", [self getYearsHijriyah][0]]
-                        ],
-                        @"left": @0,
-                        @"length": @31,
-                        @"prevhijriyahstart": @6,
-                        @"hijriyahday1": @[@23]} forKey:@"JANUARI"];
-    
-    [months setObject:@{@"name": @"FEBRUARI",
-                        @"iname": @[
-                            @"10 Rajab",
-                            [NSString stringWithFormat:@"7 Sya'ban %@H", [self getYearsHijriyah][0]]
-                        ],
-                        @"left": @3,
-                        @"length": @28,
-                        @"hijriyahday1": @[@22]} forKey:@"FEBRUARI"];
-    
-    [months setObject:@{@"name": @"MARET",
-                        @"iname": @[
-                            @"8 Sya'ban",
-                            [NSString stringWithFormat:@"9 Ramadhan %@H", [self getYearsHijriyah][0]]
-                        ],
-                        @"left": @3,
-                        @"length": @31,
-                        @"hijriyahday1": @[@23]} forKey:@"MARET"];
-    
-    [months setObject:@{@"name": @"APRIL",
-                        @"iname": @[
-                            @"10 Ramadhan",
-                            [NSString stringWithFormat:@"9 Syawal %@H", [self getYearsHijriyah][0]]
-                        ],
-                        @"left": @6,
-                        @"length": @30,
-                        @"hijriyahday1": @[@22]} forKey:@"APRIL"];
-    
-    [months setObject:@{@"name": @"MEI",
-                        @"iname": @[
-                            @"10 Syawal",
-                            [NSString stringWithFormat:@"11 Dzulqa'dah %@H", [self getYearsHijriyah][0]]
+                            @"19 Jumadil Akhir",
+                            [NSString stringWithFormat:@"19 Rajab %@H", [self getYearsHijriyah][0]]
                         ],
                         @"left": @1,
                         @"length": @31,
-                        @"hijriyahday1": @[@21]} forKey:@"MEI"];
+                        @"prevhijriyahstart": @17,
+                        @"hijriyahday1": @[@13]} forKey:@"JANUARI"];
+    
+    [months setObject:@{@"name": @"FEBRUARI",
+                        @"iname": @[
+                            @"20 Rajab",
+                            [NSString stringWithFormat:@"19 Sya'ban %@H", [self getYearsHijriyah][0]]
+                        ],
+                        @"left": @4,
+                        @"length": @29,
+                        @"hijriyahday1": @[@11]} forKey:@"FEBRUARI"];
+    
+    [months setObject:@{@"name": @"MARET",
+                        @"iname": @[
+                            @"20 Sya'ban",
+                            [NSString stringWithFormat:@"20 Ramadhan %@H", [self getYearsHijriyah][0]]
+                        ],
+                        @"left": @5,
+                        @"length": @31,
+                        @"hijriyahday1": @[@12]} forKey:@"MARET"];
+    
+    [months setObject:@{@"name": @"APRIL",
+                        @"iname": @[
+                            @"21 Ramadhan",
+                            [NSString stringWithFormat:@"21 Syawal %@H", [self getYearsHijriyah][0]]
+                        ],
+                        @"left": @1,
+                        @"length": @30,
+                        @"hijriyahday1": @[@10]} forKey:@"APRIL"];
+    
+    [months setObject:@{@"name": @"MEI",
+                        @"iname": @[
+                            @"22 Syawal",
+                            [NSString stringWithFormat:@"23 Dzulqa'dah %@H", [self getYearsHijriyah][0]]
+                        ],
+                        @"left": @3,
+                        @"length": @31,
+                        @"hijriyahday1": @[@10]} forKey:@"MEI"];
     
     [months setObject:@{@"name": @"JUNI",
                         @"iname": @[
-                            @"12 Dzulqa'dah",
-                            [NSString stringWithFormat:@"11 Dzulhijjah %@H", [self getYearsHijriyah][0]]
+                            @"24 Dzulqa'dah",
+                            [NSString stringWithFormat:@"23 Dzulhijjah %@H", [self getYearsHijriyah][0]]
                         ],
-                        @"left": @4,
+                        @"left": @6,
                         @"length": @30,
-                        @"hijriyahday1": @[@20]} forKey:@"JUNI"];
+                        @"hijriyahday1": @[@8]} forKey:@"JUNI"];
     
     [months setObject:@{@"name": @"JULI",
                         @"iname": @[
-                            [NSString stringWithFormat:@"12 Dzulhijjah %@H", [self getYearsHijriyah][0]],
-                            [NSString stringWithFormat:@"13 Muharram %@H", [self getYearsHijriyah][1]]
+                            [NSString stringWithFormat:@"24 Dzulhijjah %@H", [self getYearsHijriyah][0]],
+                            [NSString stringWithFormat:@"25 Muharram %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @6,
+                        @"left": @1,
                         @"length": @31,
-                        @"hijriyahday1": @[@19]} forKey:@"JULI"];
+                        @"hijriyahday1": @[@7]} forKey:@"JULI"];
     
     [months setObject:@{@"name": @"AGUSTUS",
                         @"iname": @[
-                            @"14 Muharram",
-                            [NSString stringWithFormat:@"14 Shafar %@H", [self getYearsHijriyah][1]]
+                            @"26 Muharram",
+                            [NSString stringWithFormat:@"26 Shafar %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @2,
+                        @"left": @4,
                         @"length": @31,
-                        @"hijriyahday1": @[@18]} forKey:@"AGUSTUS"];
+                        @"hijriyahday1": @[@6]} forKey:@"AGUSTUS"];
     
     [months setObject:@{@"name": @"SEPTEMBER",
                         @"iname": @[
-                            @"15 Shafar",
-                            [NSString stringWithFormat:@"14 Rabi'ul Awal %@H", [self getYearsHijriyah][1]]
+                            @"27 Shafar",
+                            [NSString stringWithFormat:@"26 Rabi'ul Awal %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @5,
+                        @"left": @0,
                         @"length": @30,
-                        @"hijriyahday1": @[@17]} forKey:@"SEPTEMBER"];
+                        @"hijriyahday1": @[@5]} forKey:@"SEPTEMBER"];
     
     [months setObject:@{@"name": @"OKTOBER",
                         @"iname": @[
-                            @"15 Rabi'ul Awal",
-                            [NSString stringWithFormat:@"16 Rabi'ul Akhir %@H", [self getYearsHijriyah][1]]
+                            @"27 Rabi'ul Awal",
+                            [NSString stringWithFormat:@"27 Rabi'ul Akhir %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @0,
+                        @"left": @2,
                         @"length": @31,
-                        @"hijriyahday1": @[@16]} forKey:@"OKTOBER"];
+                        @"hijriyahday1": @[@4]} forKey:@"OKTOBER"];
     
     [months setObject:@{@"name": @"NOVEMBER",
                         @"iname": @[
-                            @"17 Rabi'ul Akhir",
-                            [NSString stringWithFormat:@"16 Jumadil Awal %@H", [self getYearsHijriyah][1]]
+                            @"29 Rabi'ul Akhir",
+                            [NSString stringWithFormat:@"28 Jumadil Awal %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @3,
+                        @"left": @5,
                         @"length": @30,
-                        @"hijriyahday1": @[@15]} forKey:@"NOVEMBER"];
+                        @"hijriyahday1": @[@3]} forKey:@"NOVEMBER"];
     
     [months setObject:@{@"name": @"DESEMBER",
                         @"iname": @[
-                            @"17 Jumadil Awal",
-                            [NSString stringWithFormat:@"18 Jumadil Akhir %@H", [self getYearsHijriyah][1]]
+                            @"29 Jumadil Awal",
+                            [NSString stringWithFormat:@"29 Jumadil Akhir %@H", [self getYearsHijriyah][1]]
                         ],
-                        @"left": @5,
+                        @"left": @0,
                         @"length": @31,
-                        @"hijriyahday1": @[@14]} forKey:@"DESEMBER"];
+                        @"hijriyahday1": @[@3]} forKey:@"DESEMBER"];
     
     
     return months;
@@ -140,32 +140,31 @@
 + (NSDictionary *)getFastingDates {
     NSMutableDictionary *f = [[NSMutableDictionary alloc] init];
     [f setObject:@{@"category": @"Puasa Ramadhan",
-                   @"month": @{@"MARET": @[@23, @31],
-                               @"APRIL": @[@1, @21]}} forKey:@"Puasa Ramadhan"];
+                   @"month": @{@"MARET": @[@12, @31],
+                               @"APRIL": @[@1, @9]}} forKey:@"Puasa Ramadhan"];
 
     [f setObject:@{@"category": @"Haram Berpuasa",
-                   @"month": @{@"APRIL": @22,
-                               @"JUNI": @[@29, @30],
-                               @"JULI": @[@1, @2]}} forKey:@"Haram Berpuasa"];
+                   @"month": @{@"APRIL": @10,
+                               @"JUNI": @[@17, @20]}} forKey:@"Haram Berpuasa"];
    
     [f setObject:@{@"category": @"Puasa Arafah",
-                   @"month": @{@"JUNI": @28}} forKey:@"Puasa Arafah"];
+                   @"month": @{@"JUNI": @16}} forKey:@"Puasa Arafah"];
     
     [f setObject:@{@"category": @"Puasa Asyura dan Tasu'a",
-                   @"month": @{@"JULI": @[@27, @28]}} forKey:@"Puasa Asyura dan Tasu'a"];
+                   @"month": @{@"JULI": @[@15, @16]}} forKey:@"Puasa Asyura dan Tasu'a"];
     
     [f setObject:@{@"category": @"Puasa Ayyamul Bidh",
-                   @"month": @{@"JANUARI": @[@6, @8],
-                               @"FEBRUARI": @[@4, @6],
-                               @"MARET": @[@6, @8],
-                               @"MEI": @[@4, @6],
-                               @"JUNI": @[@2, @4],
-                               @"JULI": @[@3, @4, @31],
-                               @"AGUSTUS": @[@1, @2, @30, @31],
-                               @"SEPTEMBER": @[@1, @29, @30],
-                               @"OKTOBER": @[@1, @28, @29, @30],
-                               @"NOVEMBER": @[@27, @29],
-                               @"DESEMBER": @[@26, @28]}} forKey:@"Puasa Ayyamul Bidh"];
+                   @"month": @{@"JANUARI": @[@25, @27],
+                               @"FEBRUARI": @[@23, @25],
+                               @"APRIL": @[@22, @24],
+                               @"MEI": @[@22, @24],
+                               @"JUNI": @[@21, @23],
+                               @"JULI": @[@19, @21],
+                               @"AGUSTUS": @[@18, @20],
+                               @"SEPTEMBER": @[@17, @19],
+                               @"OKTOBER": @[@16, @18],
+                               @"NOVEMBER": @[@15, @17],
+                               @"DESEMBER": @[@15, @17]}} forKey:@"Puasa Ayyamul Bidh"];
     
     return f;
 }
@@ -203,18 +202,18 @@
 }
 
 + (NSArray *)getMonthsBaseColor {
-    return  @[@"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78",
-              @"f58a78"];
+    return  @[@"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5",
+              @"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5",
+              @"ef6a9b",
+              @"f9a37d",
+              @"feb51a",
+              @"865ca5"];
 }
 
 + (NSArray *)getDaysName {
