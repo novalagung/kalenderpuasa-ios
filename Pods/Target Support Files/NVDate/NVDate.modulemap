@@ -1,6 +1,0 @@
-framework module NVDate {
-  umbrella header "NVDate-umbrella.h"
-
-  export *
-  module * { export * }
-}

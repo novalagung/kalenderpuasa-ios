@@ -1,10 +1,6 @@
 name: Build
 
 on:
-  push:
-    tags:        
-      - '*'
-  # allows you to run this workflow manually from the Actions a tab
   workflow_dispatch:
 
 jobs:
