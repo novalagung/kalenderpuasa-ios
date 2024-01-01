@@ -144,7 +144,7 @@
     [appDelegate prepareIOSCalendarEvent: _fastDateAll];
     
     long year = [[NVDate alloc] initUsingToday].year;
-    if (year >= [Constant getCurrentYear]) {
+    if (year > [Constant getCurrentYear]) {
         NSString *alertTitle = [NSString stringWithFormat:@"Update %d belum tersedia", year];
         NSString *alertMessage = [NSString stringWithFormat:@"Kalender Puasa untuk tahun %d belum tersedia. Aplikasi ini tidak bisa digunakan hingga update selanjutnya ready. Silakan tunggu.", year];
         [[[UIAlertView alloc] initWithTitle:alertTitle
