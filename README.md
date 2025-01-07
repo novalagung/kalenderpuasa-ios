@@ -8,17 +8,17 @@ https://apps.apple.com/app/id796222919
 
 ## iPhone Preview
 
-| ![](Res/Screenshots/5/preview%201%20-%20front.jpg) | ![](Res/Screenshots/5/preview%202%20-%20category.jpg) | ![](Res/Screenshots/5/preview%203%20-%20notification.jpg) | ![](Res/Screenshots/5/preview%204%20-%20calendar.jpg) |
+| ![](resources/Screenshots/5/preview%201%20-%20front.jpg) | ![](resources/Screenshots/5/preview%202%20-%20category.jpg) | ![](resources/Screenshots/5/preview%203%20-%20notification.jpg) | ![](resources/Screenshots/5/preview%204%20-%20calendar.jpg) |
 |-|-|-|-|
 
 ## iPad Preview
 
-| ![](Res/Screenshots/ipad/preview%201%20-%20front.jpg) | ![](Res/Screenshots/ipad/preview%202%20-%20category.jpg) | ![](Res/Screenshots/ipad/preview%203%20-%20calendar.jpg) |
+| ![](resources/Screenshots/ipad/preview%201%20-%20front.jpg) | ![](resources/Screenshots/ipad/preview%202%20-%20category.jpg) | ![](resources/Screenshots/ipad/preview%203%20-%20calendar.jpg) |
 |-|-|-|
 
 ## MacOS Preview
 
-| ![](Res/Screenshots/mac/preview%201%20-%20front.png) | ![](Res/Screenshots/mac/preview%202%20-%20category.png) |
+| ![](resources/Screenshots/mac/preview%201%20-%20front.png) | ![](resources/Screenshots/mac/preview%202%20-%20category.png) |
 |-|-|
 
 ## License
