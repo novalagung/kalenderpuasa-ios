@@ -1,0 +1,33 @@
+name: Fastlane build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Release binary and push it to AppStore
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+      - run: echo '${{ secrets.GOOGLE_SERVICE_INFO }}' > "./Kalender Puasa/GoogleService-Info.plist"
+      - uses: maierj/fastlane-action@v2.3.0
+        with:
+          lane: 'build'
+          verbose: true
+        env:
+          APPLE_KEY_ID: '${{ secrets.APPLE_KEY_ID }}'
+          APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
+          APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
+          APPLE_ID: '${{ secrets.APPLE_ID }}'
+          ITC_TEAM_ID: '${{ secrets.ITC_TEAM_ID }}'
+          TEAM_ID: '${{ secrets.TEAM_ID }}'
+          PROVISIONING_PROFILE: '${{ secrets.PROVISIONING_PROFILE }}'
+          MATCH_ENVIRONMENT: '${{ secrets.MATCH_ENVIRONMENT }}'
+          MATCH_CERTIFICATES_REPO_URL: '${{ secrets.MATCH_CERTIFICATES_REPO_URL }}'
+          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+          TEMP_KEYCHAIN_USER: '${{ secrets.TEMP_KEYCHAIN_USER }}'
+          TEMP_KEYCHAIN_PASSWORD: '${{ secrets.TEMP_KEYCHAIN_PASSWORD }}'
