@@ -2,6 +2,27 @@
 
 Source code aplikasi ios Kalender Puasa. Tersedia di AppStore gratis untuk iPhone, iPad, dan MacOS.
 
+<table>
+  <tr>
+    <td><b>2013 ✅</b></td>
+    <td><b>2014 ✅</b></td>
+    <td><b>2015 ✅</b></td>
+    <td><b>2016 ✅</b></td>
+    <td><b>2017 ✅</b></td>
+    <td><b>2018 ✅</b></td>
+    <td><b>2019 ✅</b></td>
+    <td><b>2020 ✅</b></td>
+    <td><b>2021 ✅</b></td>
+    <td><b>2022 ✅</b></td>
+  </tr>
+  <tr>
+    <td><b>2023 ✅</b></td>
+    <td><b>2024 ✅</b></td>
+    <td><b>2025 ✅</b></td>
+    <td colspan="7"><b>2026 ⏳</b></td>
+  </tr>
+</table>
+
 ## AppStore Link
 
 https://apps.apple.com/app/id796222919
