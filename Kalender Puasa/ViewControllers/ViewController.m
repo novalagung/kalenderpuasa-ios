@@ -739,15 +739,15 @@
     NSString *message;
     
     if ([_fastingsName[recognizer.view.tag] isEqualToString:@"Haram Berpuasa"]) {
-        message = [NSString stringWithFormat:@"Tanggal %@ Diharamkan Berpuasa", [(UILabel *)recognizer.view text]];
+        message = [NSString stringWithFormat:@"Tanggal %@ diharamkan berpuasa", [(UILabel *)recognizer.view text]];
     } else if ([_fastingsName[recognizer.view.tag] isEqualToString:@"Puasa Ramadhan"]) {
-        message = [NSString stringWithFormat:@"Tanggal %@ Diwajibkan Berpuasa Ramadhan", [(UILabel *)recognizer.view text]];
+        message = [NSString stringWithFormat:@"Tanggal %@ diwajibkan berpuasa Ramadhan", [(UILabel *)recognizer.view text]];
     } else {
-        message = [NSString stringWithFormat:@"Tanggal %@ Disunnahkan %@", [(UILabel *)recognizer.view text], _fastingsName[recognizer.view.tag]];
+        message = [NSString stringWithFormat:@"Tanggal %@ disunnahkan %@", [(UILabel *)recognizer.view text], _fastingsName[recognizer.view.tag]];
     }
     
     if (recognizer.view.subviews.count > 1) {
-        message = [message stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"Tanggal %@", [(UILabel *)recognizer.view text]] withString:[NSString stringWithFormat:@"Hari ini tanggal %@", [(UILabel *)recognizer.view text]]];
+        message = [message stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"Tanggal %@", [(UILabel *)recognizer.view text]] withString:[NSString stringWithFormat:@"Tanggal %@", [(UILabel *)recognizer.view text]]];
     }
     
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];

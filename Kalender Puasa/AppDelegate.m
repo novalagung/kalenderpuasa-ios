@@ -66,17 +66,14 @@
         case EKAuthorizationStatusRestricted:
             break;
             
-        case EKAuthorizationStatusWriteOnly:
-            callback();
-            break;
-
         case EKAuthorizationStatusAuthorized:
             callback();
             break;
             
+        case EKAuthorizationStatusWriteOnly:
         case EKAuthorizationStatusNotDetermined: {
             if (@available(iOS 17.0, *)) {
-                [eventStore requestWriteOnlyAccessToEventsWithCompletion:^(BOOL granted, NSError * _Nullable error) {
+                [eventStore requestFullAccessToEventsWithCompletion:^(BOOL granted, NSError * _Nullable error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (granted) {
                             callback();
@@ -139,7 +136,7 @@
     
     [self authorizeCalendarEvent:^BOOL{
         
-        EKSource *localSource = nil;
+        EKSource *localSource = [self->eventStore defaultCalendarForNewEvents].source;
         for (EKSource *source in self->eventStore.sources) {
             NSLog(@"========= found source %@", source);
 
@@ -174,8 +171,8 @@
         
         if (shouldInitiateNewCalendar) {
             for (EKCalendar *each in [self->eventStore calendarsForEntityType:EKEntityTypeEvent]) {
-                NSLog(@"========= found calendar %@", each);
-                
+                NSLog(@"========= found calendar %@ %@", each.title, each);
+
                 if ([each.title containsString:calendarPrefix]) {
                     NSLog(@"========= deleting old calendar with identifier %@, name %@", each.calendarIdentifier, each.title);
                     NSError *err = nil;
