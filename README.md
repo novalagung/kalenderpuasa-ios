@@ -18,11 +18,12 @@ Source code aplikasi ios Kalender Puasa. Tersedia **gratis** di AppStore untuk i
     <td><b>2022 ✅</b></td>
     <td><b>2023 ✅</b></td>
     <td><b>2024 ✅</b></td>
-    <td colspan="6"><b>2025 🚀</b> <i>released! incoming hotfix for calendar issue is underway ⏳</i></td>
+    <td><b>2025 ✅</b></td>
+    <td colspan="5"><b>2026 ✅</b></td>
   </tr>
 </table>
 
-> _Aplikasi Kalender Puasa pertama kali dirilis di tahun 2013 dan di-_maintain_ hingga sekarang. Source code masih menggunakan **Objective-C**._
+> _Aplikasi Kalender Puasa pertama kali dirilis di tahun 2013 dan di-_maintain_ hingga sekarang. Source code menggunakan **Objective-C**._
 
 ## AppStore Link
 
