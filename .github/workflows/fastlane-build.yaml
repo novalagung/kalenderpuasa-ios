@@ -3,6 +3,9 @@ name: Fastlane build
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     name: Release binary and push it to AppStore
