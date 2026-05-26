@@ -12,7 +12,10 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
-      - run: echo '${{ secrets.GOOGLE_SERVICE_INFO }}' > "./Kalender Puasa/GoogleService-Info.plist"
+      - name: Create GoogleService-Info.plist
+        env:
+          GOOGLE_SERVICE_INFO: ${{ secrets.GOOGLE_SERVICE_INFO }}
+        run: printf '%s' "$GOOGLE_SERVICE_INFO" > "./Kalender Puasa/GoogleService-Info.plist"
       - uses: maierj/fastlane-action@v2.3.0
         with:
           lane: 'build'
