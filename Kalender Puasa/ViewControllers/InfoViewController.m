@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import "Constant.h"
+#import "Localizer.h"
 #import "UIColor+Extends.h"
 
 @interface InfoViewController ()<MFMailComposeViewControllerDelegate> {
@@ -38,7 +39,12 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    _copyright.text = [NSString stringWithFormat:@"© %d - Kalender Puasa", [Constant getCurrentYear]];
+    _authorLabel.text = [Localizer string:@"info_developed_by"];
+    [_btnFeedback setTitle:[Localizer string:@"info_feedback_button"] forState:UIControlStateNormal];
+    [_btnFeedback setTitle:[Localizer string:@"info_feedback_button"] forState:UIControlStateHighlighted];
+    [_btnShare setTitle:[Localizer string:@"info_share_button"] forState:UIControlStateNormal];
+    [_btnShare setTitle:[Localizer string:@"info_share_button"] forState:UIControlStateHighlighted];
+    _copyright.text = [NSString stringWithFormat:[Localizer string:@"info_copyright_format"], [Constant getCurrentYear]];
     
     _container.backgroundColor = [UIColor withHexString:@"ffffff"];
     _btnShare.backgroundColor = [UIColor withHexString:@"1aa8e0"];
@@ -73,7 +79,7 @@
 
 - (IBAction)doShare:(id)sender {
     UIImage *image = [UIImage imageNamed:@"logo-front.png"];
-    NSString *caption = [NSString stringWithFormat:@"%@ %@", @"Aplikasi iPhone & iPad Kalender Puasa\n", @"https://itunes.apple.com/us/app/kalender-puasa/id796222919?ls=1&mt=8"];
+    NSString *caption = [Localizer string:@"share_caption"];
     
     UIActivityViewController *sharer = [[UIActivityViewController alloc] initWithActivityItems:@[image, caption] applicationActivities:nil];
     
@@ -90,7 +96,7 @@
     MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
     
     [mail setMailComposeDelegate:self];
-    [mail setSubject:@"Feedback Kalender Puasa"];
+    [mail setSubject:[Localizer string:@"feedback_email_subject"]];
     [mail setMessageBody:@"" isHTML:NO];
     [mail setToRecipients:[NSArray arrayWithObject:@"hello@novalagung.com"]];
     
@@ -109,18 +115,18 @@
             NSLog(@"Email disimpan");
             break;
         case MFMailComposeResultSent:
-            message = @"Email berhasil dikirim !";
+            message = [Localizer string:@"email_sent_message"];
             NSLog(@"Email berhasil dikirim");
             break;
         case MFMailComposeResultFailed:
-            message = @"Email gagal dikirim !";
+            message = [Localizer string:@"email_failed_message"];
             NSLog(@"Email gagal dikirim: %@", [error localizedDescription]);
             break;
         default:
             break;
     }
     
-    if (message) [[[UIAlertView alloc] initWithTitle:@"Notifikasi" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    if (message) [[[UIAlertView alloc] initWithTitle:[Localizer string:@"notification_title"] message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }

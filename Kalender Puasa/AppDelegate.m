@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "Constant.h"
+#import "Localizer.h"
 #import <NVDate.h>
 
 @import FirebaseCore;
@@ -18,6 +19,19 @@
     BOOL wasInactive;
     
     EKEventStore *eventStore;
+}
+
+- (NSString *)localizedFastingNameFromData:(NSDictionary *)fastDate {
+    NSString *categoryKey = [fastDate valueForKey:@"categoryKey"];
+    if (categoryKey.length > 0) {
+        return [Localizer string:categoryKey];
+    }
+    
+    if ([[fastDate valueForKey:@"fastingName"] isEqualToString:@"Puasa Senin Kamis"]) {
+        return [Localizer string:@"fasting_category_monday_thursday"];
+    }
+    
+    return [fastDate valueForKey:@"fastingName"];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -234,14 +248,18 @@
             if (dateComparison == NSOrderedAscending || dateComparison == NSOrderedSame) continue;
             
             NSString *whatFast;
-            if ([[fastDate valueForKey:@"fastingName"] isEqualToString:@"Haram Berpuasa"]) {
-                whatFast = @"Diharamkan Berpuasa";
+            NSString *reasonKey = [fastDate valueForKey:@"reasonKey"];
+            if (reasonKey.length > 0) {
+                whatFast = [Localizer string:reasonKey];
+            } else if ([[fastDate valueForKey:@"fastingName"] isEqualToString:@"Haram Berpuasa"]) {
+                whatFast = [Localizer string:@"calendar_event_prohibited_generic"];
             } else if ([[fastDate valueForKey:@"fastingName"] isEqualToString:@"Puasa Ramadhan"]) {
-                whatFast = @"Diwajibkan Berpuasa Ramadhan";
+                whatFast = [Localizer string:@"calendar_event_ramadan"];
             } else {
-                whatFast = [NSString stringWithFormat:@"Disunnahkan %@", [[fastDate valueForKey:@"fastingName"] stringByReplacingOccurrencesOfString:@"Puasa" withString:@"Berpuasa"]];
+                NSString *fastingName = [[self localizedFastingNameFromData:fastDate] stringByReplacingOccurrencesOfString:@"Puasa" withString:@"Berpuasa"];
+                whatFast = [NSString stringWithFormat:[Localizer string:@"calendar_event_sunnah"], fastingName];
             }
-            NSString *message = [NSString stringWithFormat:@"%@, pada %@ tanggal %d %@ %d.\n\nSilakan ikuti waktu lokal subuh dan maghrib masing-masing, untuk mengetahui detail kapan puasa dimulai dan berakhir", whatFast, dayName, day, monthName, [Constant getCurrentYear]];
+            NSString *message = [NSString stringWithFormat:[Localizer string:@"calendar_event_message"], whatFast, dayName, day, monthName, [Constant getCurrentYear]];
             
             NVDate *dueDateStart = [[NVDate alloc] initUsingDate:dueDate.date];
             [dueDateStart setHour:3];
@@ -339,15 +357,19 @@
 - (void)scheduledNotificationAt:(NSDate *)date withData:(NSDictionary *)nextFasting {
     NSString *whatFast;
     
-    if ([[nextFasting valueForKey:@"fastingName"] isEqualToString:@"Haram Berpuasa"]) {
-        whatFast = @"diharamkan untuk Berpuasa";
+    NSString *reasonKey = [nextFasting valueForKey:@"reasonKey"];
+    if (reasonKey.length > 0) {
+        whatFast = [[Localizer string:reasonKey] lowercaseString];
+    } else if ([[nextFasting valueForKey:@"fastingName"] isEqualToString:@"Haram Berpuasa"]) {
+        whatFast = [Localizer string:@"notification_prohibited_generic"];
     } else if ([[nextFasting valueForKey:@"fastingName"] isEqualToString:@"Puasa Ramadhan"]) {
-        whatFast = @"diwajibkan untuk berpuasa Ramadhan";
+        whatFast = [Localizer string:@"notification_ramadan"];
     } else {
-        whatFast = [NSString stringWithFormat:@"disunnahkan untuk %@", [[nextFasting valueForKey:@"fastingName"] stringByReplacingOccurrencesOfString:@"Puasa" withString:@"berpuasa"]];
+        NSString *fastingName = [[self localizedFastingNameFromData:nextFasting] stringByReplacingOccurrencesOfString:@"Puasa" withString:@"berpuasa"];
+        whatFast = [NSString stringWithFormat:[Localizer string:@"notification_sunnah"], fastingName];
     }
     
-    NSString *message = [NSString stringWithFormat:@"Reminder: Besuk hari %@ tanggal %d %@ %d %@", [nextFasting valueForKey:@"dayName"], [[nextFasting valueForKey:@"day"] intValue], [nextFasting valueForKey:@"monthName"], [Constant getCurrentYear], whatFast];
+    NSString *message = [NSString stringWithFormat:[Localizer string:@"notification_message"], [nextFasting valueForKey:@"dayName"], [[nextFasting valueForKey:@"day"] intValue], [nextFasting valueForKey:@"monthName"], [Constant getCurrentYear], whatFast];
     
     // hack, test notification now
     date = [[[NSDate alloc] init] dateByAddingTimeInterval:5];

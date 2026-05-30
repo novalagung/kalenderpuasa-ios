@@ -1,0 +1,219 @@
+{
+  "gregorianYear": 2026,
+  "availableMethods": ["kemenag"],
+  "defaultMethod": "kemenag",
+  "methods": {
+    "kemenag": {
+      "methodNameKey": "hijri_method_kemenag",
+      "hijriYears": [1447, 1448],
+      "months": [
+        {
+          "id": 1,
+          "name": "JANUARI",
+          "nameKey": "month_january",
+          "iname": [
+            "12 Rajab",
+            "12 Sya'ban 1447H"
+          ],
+          "left": 4,
+          "length": 31,
+          "prevhijriyahstart": 10,
+          "hijriyahday1": [20]
+        },
+        {
+          "id": 2,
+          "name": "FEBRUARI",
+          "nameKey": "month_february",
+          "iname": [
+            "13 Sya'ban",
+            "10 Ramadhan 1447H"
+          ],
+          "left": 0,
+          "length": 28,
+          "hijriyahday1": [19]
+        },
+        {
+          "id": 3,
+          "name": "MARET",
+          "nameKey": "month_march",
+          "iname": [
+            "11 Ramadhan",
+            "11 Syawal 1447H"
+          ],
+          "left": 0,
+          "length": 31,
+          "hijriyahday1": [21]
+        },
+        {
+          "id": 4,
+          "name": "APRIL",
+          "nameKey": "month_april",
+          "iname": [
+            "12 Syawal",
+            "12 Dzulqa'dah 1447H"
+          ],
+          "left": 3,
+          "length": 30,
+          "hijriyahday1": [19]
+        },
+        {
+          "id": 5,
+          "name": "MEI",
+          "nameKey": "month_may",
+          "iname": [
+            "13 Dzulqa'dah",
+            "14 Dzulhijjah 1447H"
+          ],
+          "left": 5,
+          "length": 31,
+          "hijriyahday1": [18]
+        },
+        {
+          "id": 6,
+          "name": "JUNI",
+          "nameKey": "month_june",
+          "iname": [
+            "15 Dzulhijjah 1447H",
+            "15 Muharram 1448H"
+          ],
+          "left": 1,
+          "length": 30,
+          "hijriyahday1": [16]
+        },
+        {
+          "id": 7,
+          "name": "JULI",
+          "nameKey": "month_july",
+          "iname": [
+            "16 Muharram",
+            "@16 Shafar 1448H"
+          ],
+          "left": 3,
+          "length": 31,
+          "hijriyahday1": [16]
+        },
+        {
+          "id": 8,
+          "name": "AGUSTUS",
+          "nameKey": "month_august",
+          "iname": [
+            "17 Shafar",
+            "18 Rabi'ul Awal 1448H"
+          ],
+          "left": 6,
+          "length": 31,
+          "hijriyahday1": [14]
+        },
+        {
+          "id": 9,
+          "name": "SEPTEMBER",
+          "nameKey": "month_september",
+          "iname": [
+            "19 Rabi'ul Awal",
+            "18 Rabi'ul Akhir 1448H"
+          ],
+          "left": 2,
+          "length": 30,
+          "hijriyahday1": [13]
+        },
+        {
+          "id": 10,
+          "name": "OKTOBER",
+          "nameKey": "month_october",
+          "iname": [
+            "19 Rabi'ul Akhir",
+            "20 Jumadil Awal 1448H"
+          ],
+          "left": 4,
+          "length": 31,
+          "hijriyahday1": [12]
+        },
+        {
+          "id": 11,
+          "name": "NOVEMBER",
+          "nameKey": "month_november",
+          "iname": [
+            "21 Jumadil Awal",
+            "20 Jumadil Akhir 1448H"
+          ],
+          "left": 0,
+          "length": 30,
+          "hijriyahday1": [11]
+        },
+        {
+          "id": 12,
+          "name": "DESEMBER",
+          "nameKey": "month_december",
+          "iname": [
+            "21 Jumadil Akhir",
+            "22 Rajab 1448H"
+          ],
+          "left": 2,
+          "length": 31,
+          "hijriyahday1": [10]
+        }
+      ],
+      "fastingDates": [
+        {
+          "id": "ramadan",
+          "category": "Puasa Ramadhan",
+          "categoryKey": "fasting_category_ramadan",
+          "month": {
+            "FEBRUARI": [19, 28],
+            "MARET": [1, 20]
+          }
+        },
+        {
+          "id": "prohibited_fasting",
+          "category": "Haram Berpuasa",
+          "categoryKey": "fasting_category_prohibited",
+          "month": {
+            "MARET": {
+              "21": "haram_reason_idul_fitri"
+            },
+            "MEI": {
+              "27": "haram_reason_idul_adha",
+              "28": "haram_reason_tasyrik",
+              "29": "haram_reason_tasyrik",
+              "30": "haram_reason_tasyrik"
+            }
+          }
+        },
+        {
+          "id": "arafah",
+          "category": "Puasa Arafah",
+          "categoryKey": "fasting_category_arafah",
+          "month": {
+            "MEI": 26
+          }
+        },
+        {
+          "id": "asyura_tasua",
+          "category": "Puasa Asyura & Tasu'a",
+          "categoryKey": "fasting_category_asyura_tasua",
+          "month": {
+            "JULI": [24, 25]
+          }
+        },
+        {
+          "id": "ayyamul_bidh",
+          "category": "Puasa Ayyamul Bidh",
+          "categoryKey": "fasting_category_ayyamul_bidh",
+          "month": {
+            "JANUARI": [2, 4],
+            "FEBRUARI": [1, 3],
+            "APRIL": [2, 4],
+            "MEI": [1, 2, 3, 30, 31],
+            "JUNI": [1, 28, 29, 30],
+            "JULI": [28, 30],
+            "AGUSTUS": [26, 28],
+            "SEPTEMBER": [25, 27],
+            "OKTOBER": [24, 26],
+            "NOVEMBER": [23, 25],
+            "DESEMBER": [22, 24]
+          }
+        }
+      ]
+    }
+  }
+}

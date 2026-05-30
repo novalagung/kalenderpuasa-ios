@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -571,6 +571,8 @@
                         <outlet property="_btnPrev" destination="YEt-BI-sZ8" id="DWn-sp-jBx"/>
                         <outlet property="_calendarScrollView" destination="TK9-Eq-kaj" id="h6C-Yb-krd"/>
                         <outlet property="_overlay" destination="CAT-aQ-kbc" id="FJp-xE-Gdm"/>
+                        <outlet property="_rateMessageTextView" destination="1ne-5k-RQU" id="ybg-20-iN2"/>
+                        <outlet property="_rateQuestionLabel" destination="B8R-kh-cIa" id="ESR-e7-t7t"/>
                         <outlet property="_toolbarBorder" destination="idW-cI-diT" id="cLp-BN-k3E"/>
                         <outlet property="_toolbarFastingOther" destination="IgL-vl-7Oi" id="rdL-B7-aWQ"/>
                         <outlet property="_toolbarTrigger" destination="8CO-jA-Ic9" id="Ffv-kl-g08"/>
@@ -609,11 +611,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cKf-sY-0Nq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WdX-Y7-9Mb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPu-xo-fRl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal">
@@ -624,7 +626,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-XU-CJS">
-                                <rect key="frame" x="0.0" y="199" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="204" width="320" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyC-MN-076">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -758,11 +760,11 @@
                         <viewControllerLayoutGuide type="bottom" id="36i-6D-7hE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OD1-f8-dKr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVb-oA-rgm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal">
@@ -773,7 +775,7 @@
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWb-Z0-h7H">
-                                <rect key="frame" x="40" y="136.5" width="240" height="275"/>
+                                <rect key="frame" x="40" y="141.5" width="240" height="275"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Noval Agung &amp; Abdul Rokhman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-sk-NA9">
                                         <rect key="frame" x="0.0" y="134" width="240" height="79"/>
