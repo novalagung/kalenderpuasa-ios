@@ -13,7 +13,7 @@
 #import "Constant.h"
 #import "UIColor+Extends.h"
 #import "UIDevice+Extends.h"
-#import "NVDate.h"
+#import <NVDate.h>
 
 #define HEIGHT_IPHONE5 568
 #define HEIGHT_IPHONE6 667

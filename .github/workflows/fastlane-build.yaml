@@ -9,12 +9,15 @@ permissions:
 jobs:
   deploy:
     name: Release binary and push it to AppStore
-    runs-on: macos-11
+    runs-on: macos-15
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.2'
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Resolve Swift packages
+        run: xcodebuild -resolvePackageDependencies -project "Kalender Puasa.xcodeproj"
       - name: Create GoogleService-Info.plist
         env:
           GOOGLE_SERVICE_INFO: ${{ secrets.GOOGLE_SERVICE_INFO }}

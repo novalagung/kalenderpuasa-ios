@@ -44,7 +44,7 @@ Fitur:
 
 - Notifikasi yang akan selalu mengingatkan pengguna mengenai puasa terdekat di hari esok
 - Integrasi dengan aplikasi kalender iOS & MacOS
-- Kompatibel dengan semua jenis *Apple devices* dengan minimal versi iOS 11.0, iPadOS 11.0, macOS 10.15, dan visionOS 1.0
+- Kompatibel dengan semua jenis *Apple devices* dengan minimal versi iOS 12.0, iPadOS 12.0, macOS 10.15, dan visionOS 1.0
 
 Catatan ℹ️ :
 
