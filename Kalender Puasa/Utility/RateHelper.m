@@ -13,6 +13,7 @@
 
 static NSString *rateKey = @"rate";
 static NSString *rateTimeKey = @"rate-time";
+static NSString *installDateKey = @"install-date";
 
 + (NSDateFormatter*)getFormatter {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -36,6 +37,28 @@ static NSString *rateTimeKey = @"rate-time";
     [NSUserDefaults.standardUserDefaults setInteger:status forKey:rateKey];
     [NSUserDefaults.standardUserDefaults setValue:nowString forKey:rateTimeKey];
     [NSUserDefaults.standardUserDefaults synchronize];
+}
+
++ (NSDate *)getInstallDate {
+    NSDate *installDate = [NSUserDefaults.standardUserDefaults objectForKey:installDateKey];
+    if (installDate) {
+        return installDate;
+    }
+    
+    installDate = [[NSDate alloc] init];
+    [NSUserDefaults.standardUserDefaults setObject:installDate forKey:installDateKey];
+    [NSUserDefaults.standardUserDefaults synchronize];
+    
+    return installDate;
+}
+
++ (BOOL)isAtLeastSecondDayAfterInstall {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *installDay = [calendar startOfDayForDate:[self getInstallDate]];
+    NSDate *today = [calendar startOfDayForDate:[[NSDate alloc] init]];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay fromDate:installDay toDate:today options:0];
+    
+    return components.day >= 2;
 }
 
 + (void)resetIfDateIsChanged {
@@ -65,6 +88,10 @@ static NSString *rateTimeKey = @"rate-time";
 
 + (void)whenRateViewTimeDo:(void (^)(void))completion {
     if ([self isRated]) {
+        return;
+    }
+    
+    if (![self isAtLeastSecondDayAfterInstall]) {
         return;
     }
     
