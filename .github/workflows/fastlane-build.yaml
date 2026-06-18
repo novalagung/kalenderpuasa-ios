@@ -9,6 +9,7 @@ permissions:
 jobs:
   deploy:
     name: Release binary and push it to AppStore
+    if: false
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4

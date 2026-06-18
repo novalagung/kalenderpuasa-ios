@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4C8FB1A2FCB23F400D793AB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */; };
-		C4C8FB1C2FCB23F400D793AB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */; };
-		C4C8FB1B2FCB23F400D793AB /* NVDate in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0004004DEA4F /* NVDate */; };
+		C4192FA62FE3B18D00291FF3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */; };
+		C4192FA72FE3B18D00291FF3 /* NVDate in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0004004DEA4F /* NVDate */; };
 		F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A7E92768619B009EC0CF /* AppDelegate.m */; };
 		F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F42768619C009EC0CF /* Assets.xcassets */; };
 		F109A7F82768619C009EC0CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */; };
@@ -38,7 +37,6 @@
 		F109A850276862CE009EC0CF /* book-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A830276862CD009EC0CF /* book-active@2x.png */; };
 		F109A851276862CE009EC0CF /* info-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A831276862CD009EC0CF /* info-active@2x.png */; };
 		F109A852276862CE009EC0CF /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A832276862CD009EC0CF /* info@2x.png */; };
-		F109A853276862CE009EC0CF /* language-active.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A833276862CD009EC0CF /* language-active.png */; };
 		F109A854276862CE009EC0CF /* logo-front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A834276862CD009EC0CF /* logo-front@2x.png */; };
 		F109A855276862CE009EC0CF /* pull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A835276862CD009EC0CF /* pull@2x.png */; };
 		F109A856276862CE009EC0CF /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A836276862CD009EC0CF /* info.png */; };
@@ -48,16 +46,12 @@
 		F109A85A276862CE009EC0CF /* logo-front.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83A276862CD009EC0CF /* logo-front.png */; };
 		F109A85B276862CE009EC0CF /* motif@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83B276862CE009EC0CF /* motif@2x.png */; };
 		F109A85C276862CE009EC0CF /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83C276862CE009EC0CF /* right@2x.png */; };
-		F109A85D276862CE009EC0CF /* language-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83D276862CD009EC0CF /* language-active@2x.png */; };
-		F109A85E276862CE009EC0CF /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83E276862CD009EC0CF /* language.png */; };
-		F109A85F276862CE009EC0CF /* language@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F109A83F276862CD009EC0CF /* language@2x.png */; };
 		F109A864276862F4009EC0CF /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A85E276862F3009EC0CF /* Lato-Medium.ttf */; };
 		F109A865276862F4009EC0CF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A85F276862F3009EC0CF /* OpenSans-Regular.ttf */; };
 		F109A866276862F4009EC0CF /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A860276862F3009EC0CF /* Lobster.ttf */; };
 		F109A867276862F4009EC0CF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */; };
 		F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */; };
 		F109A869276862F4009EC0CF /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A863276862F4009EC0CF /* Lato-Black.ttf */; };
-		F109A86A2FCB000000000001 /* FontAwesome6Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */; };
 		F109A88627686319009EC0CF /* FastingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86B27686317009EC0CF /* FastingViewController.m */; };
 		F109A88727686319009EC0CF /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86D27686317009EC0CF /* Constant.m */; };
 		F109A88827686319009EC0CF /* RateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86E27686317009EC0CF /* RateHelper.m */; };
@@ -69,10 +63,6 @@
 		F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A88527686318009EC0CF /* MonthPickerViewController.m */; };
 		F109A89627686363009EC0CF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A89427686363009EC0CF /* Main_iPhone.storyboard */; };
 		F109A89727686363009EC0CF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A89527686363009EC0CF /* Main_iPad.storyboard */; };
-		F1DA7A202605300001000001 /* 2026.json in Resources */ = {isa = PBXBuildFile; fileRef = F1DA7A202605300001000000 /* 2026.json */; };
-		F1DA7A202605300002000001 /* CalendarDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DA7A202605300002000000 /* CalendarDataLoader.m */; };
-		F10CA1202605300001000001 /* Localizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F10CA1202605300001000000 /* Localizer.m */; };
-		F10CA1202605300002000001 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F10CA1202605300002000000 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +118,6 @@
 		F109A830276862CD009EC0CF /* book-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-active@2x.png"; sourceTree = "<group>"; };
 		F109A831276862CD009EC0CF /* info-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-active@2x.png"; sourceTree = "<group>"; };
 		F109A832276862CD009EC0CF /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
-		F109A833276862CD009EC0CF /* language-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "language-active.png"; sourceTree = "<group>"; };
 		F109A834276862CD009EC0CF /* logo-front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-front@2x.png"; sourceTree = "<group>"; };
 		F109A835276862CD009EC0CF /* pull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pull@2x.png"; sourceTree = "<group>"; };
 		F109A836276862CD009EC0CF /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
@@ -138,16 +127,12 @@
 		F109A83A276862CD009EC0CF /* logo-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-front.png"; sourceTree = "<group>"; };
 		F109A83B276862CE009EC0CF /* motif@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "motif@2x.png"; sourceTree = "<group>"; };
 		F109A83C276862CE009EC0CF /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
-		F109A83D276862CD009EC0CF /* language-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "language-active@2x.png"; sourceTree = "<group>"; };
-		F109A83E276862CD009EC0CF /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
-		F109A83F276862CD009EC0CF /* language@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "language@2x.png"; sourceTree = "<group>"; };
 		F109A85E276862F3009EC0CF /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		F109A85F276862F3009EC0CF /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F109A860276862F3009EC0CF /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
 		F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		F109A863276862F4009EC0CF /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
-		F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontAwesome6Free-Solid-900.otf"; sourceTree = "<group>"; };
 		F109A86B27686317009EC0CF /* FastingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastingViewController.m; sourceTree = "<group>"; };
 		F109A86D27686317009EC0CF /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		F109A86E27686317009EC0CF /* RateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateHelper.m; sourceTree = "<group>"; };
@@ -167,13 +152,6 @@
 		F109A88527686318009EC0CF /* MonthPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthPickerViewController.m; sourceTree = "<group>"; };
 		F109A89427686363009EC0CF /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		F109A89527686363009EC0CF /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
-		F1DA7A202605300001000000 /* 2026.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2026.json; sourceTree = "<group>"; };
-		F1DA7A202605300002000000 /* CalendarDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDataLoader.m; sourceTree = "<group>"; };
-		F1DA7A202605300003000000 /* CalendarDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDataLoader.h; sourceTree = "<group>"; };
-		F10CA1202605300001000000 /* Localizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localizer.m; sourceTree = "<group>"; };
-		F10CA1202605300003000000 /* Localizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Localizer.h; sourceTree = "<group>"; };
-		F10CA1202605300004000000 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F10CA1202605300005000000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4C8FB1B2FCB23F400D793AB /* NVDate in Frameworks */,
-				C4C8FB1A2FCB23F400D793AB /* FirebaseAnalytics in Frameworks */,
-				C4C8FB1C2FCB23F400D793AB /* FirebaseCrashlytics in Frameworks */,
+				C4192FA72FE3B18D00291FF3 /* NVDate in Frameworks */,
+				C4192FA62FE3B18D00291FF3 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +215,6 @@
 			children = (
 				19F1144E296B03F5000B1BCF /* Kalender Puasa.entitlements */,
 				F109A85D276862D6009EC0CF /* Images */,
-				F1DA7A202605300004000000 /* Data */,
 				F109A86A276862FA009EC0CF /* Fonts */,
 				F109A89A276885D7009EC0CF /* ViewControllers */,
 				F109A899276885BB009EC0CF /* Model */,
@@ -246,7 +222,6 @@
 				F109A7FA2768619C009EC0CF /* main.m */,
 				F109A7E82768619B009EC0CF /* AppDelegate.h */,
 				F109A7E92768619B009EC0CF /* AppDelegate.m */,
-				F10CA1202605300002000000 /* Localizable.strings */,
 				F109A89527686363009EC0CF /* Main_iPad.storyboard */,
 				F109A89427686363009EC0CF /* Main_iPhone.storyboard */,
 				F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */,
@@ -291,10 +266,6 @@
 				F109A831276862CD009EC0CF /* info-active@2x.png */,
 				F109A836276862CD009EC0CF /* info.png */,
 				F109A832276862CD009EC0CF /* info@2x.png */,
-				F109A833276862CD009EC0CF /* language-active.png */,
-				F109A83D276862CD009EC0CF /* language-active@2x.png */,
-				F109A83E276862CD009EC0CF /* language.png */,
-				F109A83F276862CD009EC0CF /* language@2x.png */,
 				F109A828276862CC009EC0CF /* left-active.png */,
 				F109A824276862CC009EC0CF /* left-active@2x.png */,
 				F109A81E276862CB009EC0CF /* left.png */,
@@ -318,7 +289,6 @@
 		F109A86A276862FA009EC0CF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */,
 				F109A863276862F4009EC0CF /* Lato-Black.ttf */,
 				F109A85E276862F3009EC0CF /* Lato-Medium.ttf */,
 				F109A860276862F3009EC0CF /* Lobster.ttf */,
@@ -332,8 +302,6 @@
 		F109A89827688599009EC0CF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				F10CA1202605300003000000 /* Localizer.h */,
-				F10CA1202605300001000000 /* Localizer.m */,
 				F109A87D27686318009EC0CF /* RateHelper.h */,
 				F109A86E27686317009EC0CF /* RateHelper.m */,
 				F109A87727686318009EC0CF /* UIColor+Extends.h */,
@@ -347,8 +315,6 @@
 		F109A899276885BB009EC0CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F1DA7A202605300003000000 /* CalendarDataLoader.h */,
-				F1DA7A202605300002000000 /* CalendarDataLoader.m */,
 				F109A88127686318009EC0CF /* Constant.h */,
 				F109A86D27686317009EC0CF /* Constant.m */,
 			);
@@ -370,22 +336,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F1DA7A202605300004000000 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				F1DA7A202605300005000000 /* calendar */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		F1DA7A202605300005000000 /* calendar */ = {
-			isa = PBXGroup;
-			children = (
-				F1DA7A202605300001000000 /* 2026.json */,
-			);
-			path = calendar;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,7 +346,6 @@
 				F109A7E12768619B009EC0CF /* Sources */,
 				F109A7E22768619B009EC0CF /* Frameworks */,
 				F109A7E32768619B009EC0CF /* Resources */,
-				F1CR4SH2F5E0005004DEA4F /* Upload Crashlytics dSYMs */,
 			);
 			buildRules = (
 			);
@@ -405,7 +354,6 @@
 			name = "Kalender Puasa";
 			packageProductDependencies = (
 				F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */,
-				F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */,
 				F1REBA5E2F5E0004004DEA4F /* NVDate */,
 			);
 			productName = "Kalender Puasa";
@@ -477,7 +425,6 @@
 			knownRegions = (
 				en,
 				Base,
-				id,
 			);
 			mainGroup = F109A7DC2768619B009EC0CF;
 			packageReferences = (
@@ -495,33 +442,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F1CR4SH2F5E0005004DEA4F /* Upload Crashlytics dSYMs */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
-				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-			);
-			name = "Upload Crashlytics dSYMs";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\" -gsp \"${PROJECT_DIR}/Kalender Puasa/GoogleService-Info.plist\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXResourcesBuildPhase section */
 		F109A7E32768619B009EC0CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -530,11 +450,9 @@
 				F109A85B276862CE009EC0CF /* motif@2x.png in Resources */,
 				F109A85A276862CE009EC0CF /* logo-front.png in Resources */,
 				F109A7F82768619C009EC0CF /* LaunchScreen.storyboard in Resources */,
-				F10CA1202605300002000001 /* Localizable.strings in Resources */,
 				F109A83F276862CE009EC0CF /* info-active.png in Resources */,
 				F109A843276862CE009EC0CF /* date@2x.png in Resources */,
 				F109A83E276862CE009EC0CF /* left.png in Resources */,
-				F1DA7A202605300001000001 /* 2026.json in Resources */,
 				F109A844276862CE009EC0CF /* left-active@2x.png in Resources */,
 				F109A84D276862CE009EC0CF /* logo@2x.png in Resources */,
 				F109A850276862CE009EC0CF /* book-active@2x.png in Resources */,
@@ -549,7 +467,6 @@
 				F109A866276862F4009EC0CF /* Lobster.ttf in Resources */,
 				F109A865276862F4009EC0CF /* OpenSans-Regular.ttf in Resources */,
 				F109A852276862CE009EC0CF /* info@2x.png in Resources */,
-				F109A853276862CE009EC0CF /* language-active.png in Resources */,
 				F109A854276862CE009EC0CF /* logo-front@2x.png in Resources */,
 				F109A857276862CE009EC0CF /* book-active.png in Resources */,
 				F109A84E276862CE009EC0CF /* cover.png in Resources */,
@@ -562,18 +479,14 @@
 				F109A846276862CE009EC0CF /* right-active.png in Resources */,
 				F109A845276862CE009EC0CF /* pull.png in Resources */,
 				F109A859276862CE009EC0CF /* right-active@2x.png in Resources */,
-				F109A85D276862CE009EC0CF /* language-active@2x.png in Resources */,
 				F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */,
 				F109A851276862CE009EC0CF /* info-active@2x.png in Resources */,
 				F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */,
 				F109A858276862CE009EC0CF /* book@2x.png in Resources */,
-				F109A85E276862CE009EC0CF /* language.png in Resources */,
-				F109A86A2FCB000000000001 /* FontAwesome6Free-Solid-900.otf in Resources */,
 				F109A855276862CE009EC0CF /* pull@2x.png in Resources */,
 				F109A84C276862CE009EC0CF /* date-active.png in Resources */,
 				F109A856276862CE009EC0CF /* info.png in Resources */,
 				F109A840276862CE009EC0CF /* date-active@2x.png in Resources */,
-				F109A85F276862CE009EC0CF /* language@2x.png in Resources */,
 				F109A88A27686319009EC0CF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,12 +517,10 @@
 				F109A88C27686319009EC0CF /* InfoViewController.m in Sources */,
 				F109A88627686319009EC0CF /* FastingViewController.m in Sources */,
 				F109A89327686319009EC0CF /* MonthPickerViewController.m in Sources */,
-				F10CA1202605300001000001 /* Localizer.m in Sources */,
 				F109A88827686319009EC0CF /* RateHelper.m in Sources */,
 				F109A89227686319009EC0CF /* ViewController.m in Sources */,
 				F109A88927686319009EC0CF /* UIColor+Extends.m in Sources */,
 				F109A7FB2768619C009EC0CF /* main.m in Sources */,
-				F1DA7A202605300002000001 /* CalendarDataLoader.m in Sources */,
 				F109A88727686319009EC0CF /* Constant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,15 +564,6 @@
 				F109A7F72768619C009EC0CF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		F10CA1202605300002000000 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F10CA1202605300004000000 /* id */,
-				F10CA1202605300005000000 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -795,7 +697,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -824,7 +726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.2026.0;
+				MARKETING_VERSION = 1.2026.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -852,7 +754,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -881,8 +783,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				MARKETING_VERSION = 1.2026.0;
+				MARKETING_VERSION = 1.2026.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1031,7 +932,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.29.0;
+				version = 12.15.0;
 			};
 		};
 		F1REBA5E2F5E0002004DEA4F /* XCRemoteSwiftPackageReference "NVDate" */ = {
@@ -1049,11 +950,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1REBA5E2F5E0001004DEA4F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F1REBA5E2F5E0001004DEA4F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
 		};
 		F1REBA5E2F5E0004004DEA4F /* NVDate */ = {
 			isa = XCSwiftPackageProductDependency;
