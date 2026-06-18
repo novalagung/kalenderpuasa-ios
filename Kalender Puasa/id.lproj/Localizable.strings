@@ -1,0 +1,74 @@
+"language_name_indonesian" = "Indonesia";
+"language_name_english" = "English";
+"language_setting_title" = "Bahasa / Language";
+"language_setting_message" = "Pilih bahasa aplikasi";
+"language_restart_title" = "Bahasa diperbarui";
+"language_restart_message" = "Perubahan bahasa akan diterapkan setelah aplikasi dibuka ulang";
+"common_cancel" = "Batal";
+"notification_title" = "Notifikasi";
+"email_sent_message" = "Email berhasil dikirim !";
+"email_failed_message" = "Email gagal dikirim !";
+"feedback_email_subject" = "Feedback Kalender Puasa";
+"share_caption" = "Aplikasi iPhone & iPad Kalender Puasa\nhttps://itunes.apple.com/us/app/kalender-puasa/id796222919?ls=1&mt=8";
+"info_developed_by" = "Dikembangkan oleh :";
+"info_feedback_button" = "Kritik - Saran";
+"info_share_button" = "Share";
+"info_copyright_format" = "© %d - Kalender Puasa";
+"rate_question" = "Apakah aplikasi ini bermanfaat?";
+"rate_message" = "Rate aplikasi Kalender Puasa di App Store";
+"rate_yes_button" = "Ya, Rate Sekarang";
+"rate_no_button" = "Tidak";
+
+"hijri_method_kemenag" = "Kemenag Indonesia";
+
+"fasting_category_ramadan" = "Puasa Ramadhan";
+"fasting_category_prohibited" = "Haram Berpuasa";
+"fasting_category_arafah" = "Puasa Arafah";
+"fasting_category_asyura_tasua" = "Puasa Asyura & Tasu'a";
+"fasting_category_ayyamul_bidh" = "Puasa Ayyamul Bidh";
+"fasting_category_monday_thursday" = "Puasa Senin Kamis";
+
+"haram_reason_idul_fitri" = "Diharamkan berpuasa karena hari raya Idul Fitri";
+"haram_reason_idul_adha" = "Diharamkan berpuasa karena hari raya Idul Adha";
+"haram_reason_tasyrik" = "Diharamkan berpuasa karena hari Tasyrik";
+
+"tap_prohibited_generic" = "Tanggal %@ diharamkan berpuasa";
+"tap_ramadan" = "Tanggal %@ diwajibkan berpuasa Ramadhan";
+"tap_sunnah" = "Tanggal %@ disunnahkan %@";
+
+"calendar_event_prohibited_generic" = "Diharamkan Berpuasa";
+"calendar_event_ramadan" = "Diwajibkan Berpuasa Ramadhan";
+"calendar_event_sunnah" = "Disunnahkan %@";
+"calendar_event_message" = "%@, pada %@ tanggal %d %@ %d.\n\nSilakan ikuti waktu lokal subuh dan maghrib masing-masing, untuk mengetahui detail kapan puasa dimulai dan berakhir";
+
+"notification_prohibited_generic" = "diharamkan untuk Berpuasa";
+"notification_ramadan" = "diwajibkan untuk berpuasa Ramadhan";
+"notification_sunnah" = "disunnahkan untuk %@";
+"notification_message" = "Reminder: Besuk hari %@ tanggal %d %@ %d %@";
+
+"update_unavailable_title" = "Update %d belum tersedia";
+"update_unavailable_message" = "Kalender Puasa untuk tahun %d belum tersedia. Aplikasi ini tidak bisa digunakan hingga update selanjutnya ready. Silakan tunggu";
+
+"year_gregorian_format" = "%d Masehi";
+"year_hijri_range_format" = "%@ - %@ Hijriyah";
+
+"month_january" = "JANUARI";
+"month_february" = "FEBRUARI";
+"month_march" = "MARET";
+"month_april" = "APRIL";
+"month_may" = "MEI";
+"month_june" = "JUNI";
+"month_july" = "JULI";
+"month_august" = "AGUSTUS";
+"month_september" = "SEPTEMBER";
+"month_october" = "OKTOBER";
+"month_november" = "NOVEMBER";
+"month_december" = "DESEMBER";
+
+"day_sunday" = "Ahad";
+"day_monday" = "Senin";
+"day_tuesday" = "Selasa";
+"day_wednesday" = "Rabu";
+"day_thursday" = "Kamis";
+"day_friday" = "Jum'at";
+"day_saturday" = "Sabtu";

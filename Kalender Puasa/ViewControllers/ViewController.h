@@ -12,7 +12,6 @@
 @interface ViewController : UIViewController
 
 - (void)prepareForCurrentDay;
-- (void)prepareCalendarView;
 
 @property (nonatomic, strong) NSMutableArray *fastDateAll;
 

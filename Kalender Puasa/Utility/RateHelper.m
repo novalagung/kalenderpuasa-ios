@@ -87,18 +87,18 @@ static NSString *installDateKey = @"install-date";
 }
 
 + (void)whenRateViewTimeDo:(void (^)(void))completion {
-    if ([self isRated]) {
-        return;
-    }
-    
-    if (![self isAtLeastSecondDayAfterInstall]) {
-        return;
-    }
-    
-    [self resetIfDateIsChanged];
-    if ([self isShowingUpToday]) {
-        return;
-    }
+//    if ([self isRated]) {
+//        return;
+//    }
+//    
+//    if (![self isAtLeastSecondDayAfterInstall]) {
+//        return;
+//    }
+//    
+//    [self resetIfDateIsChanged];
+//    if ([self isShowingUpToday]) {
+//        return;
+//    }
     
     completion();
 }

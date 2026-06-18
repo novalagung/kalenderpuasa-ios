@@ -11,9 +11,11 @@
 #import "MonthPickerViewController.h"
 #import "FastingViewController.h"
 #import "Constant.h"
+#import "Localizer.h"
 #import "UIColor+Extends.h"
 #import "UIDevice+Extends.h"
 #import <NVDate.h>
+#import <objc/runtime.h>
 
 #define HEIGHT_IPHONE5 568
 #define HEIGHT_IPHONE6 667
@@ -22,6 +24,11 @@
 #define WIDTH_IPHONE5 320
 #define WIDTH_IPHONE6 375
 #define WIDTH_IPHONE6P 414
+
+static NSString * const FontAwesomeSolidFontName = @"FontAwesome6Free-Solid";
+static NSString * const FontAwesomeCalendarIcon = @"\uf073";
+static NSString * const FontAwesomeLanguageIcon = @"\uf1ab";
+static NSString * const FontAwesomeInfoIcon = @"\uf05a";
 
 @interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate, UIAlertViewDelegate> {
     NSMutableDictionary *_fastings;
@@ -38,6 +45,7 @@
     IBOutlet UIButton *_btnNext;
     IBOutlet UIView *_toolbarFastingOther;
     IBOutlet UIButton *_btnMonth;
+    UIButton *_btnLanguage;
     IBOutlet UIButton *_btnInfo;
     IBOutlet UIButton *_btnBook;
     IBOutlet UIView *_labelYear;
@@ -47,6 +55,8 @@
     IBOutlet UIView *_contentContainerView;
     IBOutlet UIScrollView *_calendarScrollView;
     
+    IBOutlet UILabel *_rateQuestionLabel;
+    IBOutlet UITextView *_rateMessageTextView;
     IBOutlet UIButton *btnRateNo;
     IBOutlet UIButton *btnRateYes;
     IBOutlet UIView *viewRate;
@@ -66,6 +76,9 @@
 @end
 
 @implementation ViewController
+
+static char FastingReasonKey;
+static char FastingCategoryKey;
     
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,6 +114,8 @@
     } else {
         [self prepareFastingViewForIpad];
     }
+    [self layoutLanguageButton];
+    [self configureToolbarIconButtons];
 
     long currentMonthIndex = ([[self getDateComponents] month] - 1);
     if ([UIDevice isIPad]) currentMonthIndex = floor(currentMonthIndex / 4);
@@ -126,7 +141,106 @@
     btnRateYes.layer.cornerRadius = 6;
     btnRateYes.layer.borderColor = [UIColor whiteColor].CGColor;
     
+    [self localizeRateView];
     [self.view bringSubviewToFront:viewRate.superview];
+}
+
+- (void)localizeRateView {
+    [_rateQuestionLabel setText:[Localizer string:@"rate_question"]];
+    [_rateMessageTextView setText:[Localizer string:@"rate_message"]];
+    [btnRateYes setTitle:[Localizer string:@"rate_yes_button"] forState:UIControlStateNormal];
+    [btnRateYes setTitle:[Localizer string:@"rate_yes_button"] forState:UIControlStateHighlighted];
+    [btnRateNo setTitle:[Localizer string:@"rate_no_button"] forState:UIControlStateNormal];
+    [btnRateNo setTitle:[Localizer string:@"rate_no_button"] forState:UIControlStateHighlighted];
+}
+
+- (void)configureToolbarIconButtons {
+    [self configureToolbarIconButton:_btnMonth withIcon:FontAwesomeCalendarIcon];
+    [self configureToolbarIconButton:_btnLanguage withIcon:FontAwesomeLanguageIcon];
+    [self configureToolbarIconButton:_btnInfo withIcon:FontAwesomeInfoIcon];
+}
+
+- (void)configureToolbarIconButton:(UIButton *)button withIcon:(NSString *)icon {
+    if (!button) return;
+    
+    [button setImage:nil forState:UIControlStateNormal];
+    [button setImage:nil forState:UIControlStateHighlighted];
+    [button setImage:nil forState:UIControlStateSelected];
+    
+    CGFloat fontSize = [UIDevice isIPad] ? 28. : 27.;
+    UIFont *fontAwesome = [UIFont fontWithName:FontAwesomeSolidFontName size:fontSize];
+    button.titleLabel.font = fontAwesome ?: [UIFont systemFontOfSize:fontSize];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    button.contentEdgeInsets = UIEdgeInsetsZero;
+    button.titleEdgeInsets = UIEdgeInsetsZero;
+    
+    UIColor *normalColor = [UIColor withHexString:@"bfc1c6"];
+    UIColor *activeColor = [UIColor withHexString:@"f58a78"];
+    [button setTitle:icon forState:UIControlStateNormal];
+    [button setTitle:icon forState:UIControlStateHighlighted];
+    [button setTitle:icon forState:UIControlStateSelected];
+    [button setTitleColor:normalColor forState:UIControlStateNormal];
+    [button setTitleColor:activeColor forState:UIControlStateHighlighted];
+    [button setTitleColor:activeColor forState:UIControlStateSelected];
+}
+
+- (void)prepareLanguageButton {
+    if (!_btnLanguage) {
+        _btnLanguage = [UIButton buttonWithType:UIButtonTypeCustom];
+        _btnLanguage.alpha = .8;
+        _btnLanguage.backgroundColor = [UIColor clearColor];
+        [_btnLanguage addTarget:self action:@selector(doChooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
+        UIView *buttonContainer = _btnMonth.superview ?: _contentContainerView;
+        [buttonContainer addSubview:_btnLanguage];
+    }
+    
+    [_btnLanguage.superview bringSubviewToFront:_btnLanguage];
+}
+
+- (void)layoutLanguageButton {
+    [self prepareLanguageButton];
+    
+    CGRect buttonFrame = _btnMonth.frame;
+    buttonFrame.size.width = MAX(buttonFrame.size.width, 35);
+    buttonFrame.size.height = MAX(buttonFrame.size.height, 35);
+    
+    if ([UIDevice isIPad] && _btnBook) {
+        CGFloat gap = 22.;
+        CGFloat rightMargin = 67.;
+        CGFloat containerWidth = _btnMonth.superview.bounds.size.width ?: self.view.frame.size.width;
+        CGFloat totalWidth = (buttonFrame.size.width * 4) + (gap * 3);
+        CGFloat startX = containerWidth - rightMargin - totalWidth;
+        
+        buttonFrame.origin.x = startX;
+        _btnBook.frame = buttonFrame;
+        
+        buttonFrame.origin.x = CGRectGetMaxX(_btnBook.frame) + gap;
+        _btnLanguage.frame = buttonFrame;
+        
+        buttonFrame.origin.x = CGRectGetMaxX(_btnLanguage.frame) + gap;
+        _btnMonth.frame = buttonFrame;
+        
+        buttonFrame.origin.x = CGRectGetMaxX(_btnMonth.frame) + gap;
+        _btnInfo.frame = buttonFrame;
+        return;
+    }
+    
+    CGFloat gap = 14.;
+    CGFloat totalWidth = (buttonFrame.size.width * 3) + (gap * 2);
+    CGFloat availableStart = self.view.frame.size.width / 2.;
+    CGFloat availableWidth = self.view.frame.size.width - availableStart;
+    CGFloat startX = availableStart + ((availableWidth - totalWidth) / 2.);
+    
+    buttonFrame.origin.x = startX;
+    _btnMonth.frame = buttonFrame;
+    
+    buttonFrame.origin.x = CGRectGetMaxX(_btnMonth.frame) + gap;
+    _btnLanguage.frame = buttonFrame;
+    
+    buttonFrame.origin.x = CGRectGetMaxX(_btnLanguage.frame) + gap;
+    _btnInfo.frame = buttonFrame;
 }
     
 - (void)viewDidAppear:(BOOL)animated {
@@ -145,8 +259,8 @@
     
     long year = [[NVDate alloc] initUsingToday].year;
     if (year > [Constant getCurrentYear]) {
-        NSString *alertTitle = [NSString stringWithFormat:@"Update %d belum tersedia", year];
-        NSString *alertMessage = [NSString stringWithFormat:@"Kalender Puasa untuk tahun %d belum tersedia. Aplikasi ini tidak bisa digunakan hingga update selanjutnya ready. Silakan tunggu.", year];
+        NSString *alertTitle = [NSString stringWithFormat:[Localizer string:@"update_unavailable_title"], year];
+        NSString *alertMessage = [NSString stringWithFormat:[Localizer string:@"update_unavailable_message"], year];
         [[[UIAlertView alloc] initWithTitle:alertTitle
                                     message:alertMessage
                                    delegate:self
@@ -245,7 +359,7 @@
         yearNoteFrame.origin.x = 0;
         yearNoteFrame.origin.y = buttonBottomPosition;
         _yearNote.frame = yearNoteFrame;
-        _yearNote.text = [NSString stringWithFormat:@"%d Masehi\n%@ - %@ Hijriyah", [Constant getCurrentYear], [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
+        _yearNote.text = [NSString stringWithFormat:@"%@\n%@", [self gregorianYearText], [self hijriYearRangeText]];
         _yearNote.textColor = [UIColor withHexString:@"454744"];
         _yearNote.textAlignment = NSTextAlignmentCenter;
     }
@@ -400,9 +514,9 @@
     
     /* label */ {
         UILabel *labelYear1 = [_labelYear.subviews objectAtIndex:0];
-        labelYear1.text = [NSString stringWithFormat:@"%d Masehi", [Constant getCurrentYear]];
+        labelYear1.text = [self gregorianYearText];
         UILabel *labelYear2 = [_labelYear.subviews objectAtIndex:1];
-        labelYear2.text = [NSString stringWithFormat:@"%@ - %@ Hijriyah", [Constant getYearsHijriyah][0], [Constant getYearsHijriyah][1]];
+        labelYear2.text = [self hijriYearRangeText];
     }
 
     int i = 0;
@@ -663,13 +777,43 @@
     return view;
 }
     
+- (NSString *)localizedFastingNameFor:(NSString *)fastingName {
+    NSString *categoryKey = [[_fastings valueForKey:fastingName] valueForKey:@"categoryKey"];
+    if (categoryKey.length > 0) {
+        return [Localizer string:categoryKey];
+    }
+    
+    if ([fastingName isEqualToString:@"Puasa Senin Kamis"]) {
+        return [Localizer string:@"fasting_category_monday_thursday"];
+    }
+    
+    return fastingName;
+}
+
+- (NSString *)gregorianYearText {
+    return [NSString stringWithFormat:[Localizer string:@"year_gregorian_format"], [Constant getCurrentYear]];
+}
+
+- (NSString *)hijriYearRangeText {
+    NSArray *hijriYears = [Constant getYearsHijriyah];
+    if (hijriYears.count < 2) {
+        return @"";
+    }
+    
+    return [NSString stringWithFormat:[Localizer string:@"year_hijri_range_format"], hijriYears[0], hijriYears[1]];
+}
+
 - (void)fastingableFor:(NSString *)fastingName at:(int)dayNumber withData:(NSDictionary *)data inLabel:(UILabel *)label withBGColor:(UIColor *)bgColor andTextColor:(UIColor *)textColor {
     id options = [[[_fastings valueForKey:fastingName] valueForKey:@"month"] valueForKey:[data valueForKey:@"name"]];
     if (!options) return;
     
     NSMutableDictionary *values = [NSMutableDictionary dictionary];
     
-    if ([options isKindOfClass:[NSArray class]]) {
+    if ([options isKindOfClass:[NSDictionary class]]) {
+        for (NSString *day in (NSDictionary *)options) {
+            values[day] = [(NSDictionary *)options valueForKey:day];
+        }
+    } else if ([options isKindOfClass:[NSArray class]]) {
         if ([(NSArray *)options count] > 2) {
             for (id i in options)
             values[[i stringValue]] = @(true);
@@ -682,11 +826,20 @@
         values[[options stringValue]] = @(true);
     }
     
-    if (!(values[@(dayNumber).stringValue] && label.tag == -1)) return;
+    NSString *dayKey = @(dayNumber).stringValue;
+    id fastingValue = values[dayKey];
+    if (!(fastingValue && label.tag == -1)) return;
     
     label.backgroundColor = bgColor;
     label.textColor = textColor;
     label.tag = [_fastingsName indexOfObject:fastingName];
+    if ([fastingValue isKindOfClass:[NSString class]]) {
+        objc_setAssociatedObject(label, &FastingReasonKey, fastingValue, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+    NSString *categoryKey = [[_fastings valueForKey:fastingName] valueForKey:@"categoryKey"];
+    if (categoryKey.length > 0) {
+        objc_setAssociatedObject(label, &FastingCategoryKey, categoryKey, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
     
     UIImageView *cover = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cover.png"]];
     cover.frame = CGRectMake(0, 0, label.frame.size.width, label.frame.size.height);
@@ -703,7 +856,15 @@
     
     NSDictionary *currentMonthData = [[Constant getMonthsMapping] valueForKey:[data valueForKey:@"name"]];
     int dayIndex = (dayNumber + [[currentMonthData valueForKey:@"left"] intValue] - 1) % 7;
-    [_fastDateAll addObject:@{@"fastingName": fastingName, @"day": @(dayNumber), @"dayName": [Constant getDaysName][dayIndex], @"month": @(monthNumber), @"monthName": [data valueForKey:@"name"]}];
+    
+    NSMutableDictionary *fastDate = [@{@"fastingName": fastingName, @"day": @(dayNumber), @"dayName": [Constant getDaysName][dayIndex], @"month": @(monthNumber), @"monthName": [data valueForKey:@"name"]} mutableCopy];
+    if ([fastingValue isKindOfClass:[NSString class]]) {
+        fastDate[@"reasonKey"] = fastingValue;
+    }
+    if (categoryKey.length > 0) {
+        fastDate[@"categoryKey"] = categoryKey;
+    }
+    [_fastDateAll addObject:fastDate];
     date = nil;
 }
     
@@ -714,6 +875,7 @@
     label.backgroundColor = bgColor;
     label.textColor = textColor;
     label.tag = [_fastingsName indexOfObject:@"Puasa Senin Kamis"];
+    objc_setAssociatedObject(label, &FastingCategoryKey, @"fasting_category_monday_thursday", OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     UIImageView *cover = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cover.png"]];
     cover.frame = CGRectMake(0, 0, label.frame.size.width, label.frame.size.height);
@@ -728,22 +890,34 @@
     long year = [[NVDate alloc] initUsingToday].year;
     NVDate *date = [[NVDate alloc] initUsingYear:year month:monthNumber day:dayNumber];
     
-    [_fastDateAll addObject:@{@"fastingName": @"Puasa Senin Kamis", @"day": @(dayNumber), @"dayName": [Constant getDaysName][dayIndex], @"month": @(monthNumber), @"monthName": [data valueForKey:@"name"]}];
+    [_fastDateAll addObject:@{
+        @"fastingName": @"Puasa Senin Kamis",
+        @"categoryKey": @"fasting_category_monday_thursday",
+        @"day": @(dayNumber),
+        @"dayName": [Constant getDaysName][dayIndex],
+        @"month": @(monthNumber),
+        @"monthName": [data valueForKey:@"name"]
+    }];
     date = nil;
 }
     
 - (void)fastTap:(UIGestureRecognizer *)recognizer {
     if (recognizer.view.tag < 0) return;
     
-    NSString *title = @"Notifikasi";
+    NSString *title = [Localizer string:@"notification_title"];
     NSString *message;
+    NSString *reasonKey = objc_getAssociatedObject(recognizer.view, &FastingReasonKey);
+    NSString *fastingName = _fastingsName[recognizer.view.tag];
+    NSString *localizedFastingName = [self localizedFastingNameFor:fastingName];
     
-    if ([_fastingsName[recognizer.view.tag] isEqualToString:@"Haram Berpuasa"]) {
-        message = [NSString stringWithFormat:@"Tanggal %@ diharamkan berpuasa", [(UILabel *)recognizer.view text]];
-    } else if ([_fastingsName[recognizer.view.tag] isEqualToString:@"Puasa Ramadhan"]) {
-        message = [NSString stringWithFormat:@"Tanggal %@ diwajibkan berpuasa Ramadhan", [(UILabel *)recognizer.view text]];
+    if (reasonKey.length > 0) {
+        message = [Localizer string:reasonKey];
+    } else if ([fastingName isEqualToString:@"Haram Berpuasa"]) {
+        message = [NSString stringWithFormat:[Localizer string:@"tap_prohibited_generic"], [(UILabel *)recognizer.view text]];
+    } else if ([fastingName isEqualToString:@"Puasa Ramadhan"]) {
+        message = [NSString stringWithFormat:[Localizer string:@"tap_ramadan"], [(UILabel *)recognizer.view text]];
     } else {
-        message = [NSString stringWithFormat:@"Tanggal %@ disunnahkan %@", [(UILabel *)recognizer.view text], _fastingsName[recognizer.view.tag]];
+        message = [NSString stringWithFormat:[Localizer string:@"tap_sunnah"], [(UILabel *)recognizer.view text], localizedFastingName];
     }
     
     if (recognizer.view.subviews.count > 1) {
@@ -936,6 +1110,32 @@
         self->_btnPrev.enabled = !((currentPage + 1) <= 0);
         self->_btnNext.enabled = !((currentPage + 1) >= [self maxPage]);
     }];
+}
+
+- (IBAction)doChooseLanguage:(id)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:[Localizer string:@"language_setting_title"]
+                                                                        message:[Localizer string:@"language_setting_message"]
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    for (NSDictionary *language in [Localizer availableLanguages]) {
+        NSString *languageCode = [language valueForKey:@"code"];
+        NSString *title = [Localizer string:[language valueForKey:@"titleKey"]];
+        [controller addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [Localizer setCurrentLanguageCode:languageCode];
+            
+            [[[UIAlertView alloc] initWithTitle:[Localizer string:@"language_restart_title"]
+                                        message:[Localizer string:@"language_restart_message"]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil, nil] show];
+        }]];
+    }
+    
+    [controller addAction:[UIAlertAction actionWithTitle:[Localizer string:@"common_cancel"] style:UIAlertActionStyleCancel handler:nil]];
+    
+    controller.popoverPresentationController.sourceView = _btnLanguage;
+    controller.popoverPresentationController.sourceRect = _btnLanguage.bounds;
+    [self presentViewController:controller animated:YES completion:nil];
 }
     
 #pragma mark - scrollview

@@ -1,0 +1,74 @@
+"language_name_indonesian" = "Indonesian";
+"language_name_english" = "English";
+"language_setting_title" = "Language";
+"language_setting_message" = "Choose the app language";
+"language_restart_title" = "Language updated";
+"language_restart_message" = "The language change will apply after you reopen the app";
+"common_cancel" = "Cancel";
+"notification_title" = "Notification";
+"email_sent_message" = "Email sent successfully!";
+"email_failed_message" = "Could not send email";
+"feedback_email_subject" = "Kalender Puasa Feedback";
+"share_caption" = "Kalender Puasa iPhone & iPad app\nhttps://itunes.apple.com/us/app/kalender-puasa/id796222919?ls=1&mt=8";
+"info_developed_by" = "Developed by:";
+"info_feedback_button" = "Feedback";
+"info_share_button" = "Share";
+"info_copyright_format" = "© %d - Kalender Puasa";
+"rate_question" = "Is this app useful?";
+"rate_message" = "Rate Kalender Puasa on the App Store";
+"rate_yes_button" = "Yes, Rate Now";
+"rate_no_button" = "No";
+
+"hijri_method_kemenag" = "Kemenag Indonesia";
+
+"fasting_category_ramadan" = "Ramadan fast";
+"fasting_category_prohibited" = "Fasting is prohibited";
+"fasting_category_arafah" = "Arafah fast";
+"fasting_category_asyura_tasua" = "Ashura and Tasua fasts";
+"fasting_category_ayyamul_bidh" = "Ayyam al-Bid fast";
+"fasting_category_monday_thursday" = "Monday and Thursday fasts";
+
+"haram_reason_idul_fitri" = "Fasting is prohibited because it is Eid al-Fitr";
+"haram_reason_idul_adha" = "Fasting is prohibited because it is Eid al-Adha";
+"haram_reason_tasyrik" = "Fasting is prohibited because it is a day of Tashreeq";
+
+"tap_prohibited_generic" = "Fasting is prohibited on the %@";
+"tap_ramadan" = "The Ramadan fast is obligatory on the %@";
+"tap_sunnah" = "It is Sunnah to observe the %2$@ on the %1$@";
+
+"calendar_event_prohibited_generic" = "Fasting is prohibited";
+"calendar_event_ramadan" = "The Ramadan fast is obligatory";
+"calendar_event_sunnah" = "It is Sunnah to observe the %@";
+"calendar_event_message" = "%@ on %@, %d %@ %d.\n\nPlease follow your local Fajr and Maghrib times to know when fasting starts and ends";
+
+"notification_prohibited_generic" = "fasting is prohibited";
+"notification_ramadan" = "the Ramadan fast is obligatory";
+"notification_sunnah" = "it is Sunnah to observe the %@";
+"notification_message" = "Reminder: Tomorrow, %@, %d %@ %d, %@";
+
+"update_unavailable_title" = "The %d update is not available yet";
+"update_unavailable_message" = "Kalender Puasa for %d is not available yet. The app cannot be used until the next update is ready";
+
+"year_gregorian_format" = "%d Gregorian";
+"year_hijri_range_format" = "%@ - %@ Hijri";
+
+"month_january" = "JANUARY";
+"month_february" = "FEBRUARY";
+"month_march" = "MARCH";
+"month_april" = "APRIL";
+"month_may" = "MAY";
+"month_june" = "JUNE";
+"month_july" = "JULY";
+"month_august" = "AUGUST";
+"month_september" = "SEPTEMBER";
+"month_october" = "OCTOBER";
+"month_november" = "NOVEMBER";
+"month_december" = "DECEMBER";
+
+"day_sunday" = "Sunday";
+"day_monday" = "Monday";
+"day_tuesday" = "Tuesday";
+"day_wednesday" = "Wednesday";
+"day_thursday" = "Thursday";
+"day_friday" = "Friday";
+"day_saturday" = "Saturday";
