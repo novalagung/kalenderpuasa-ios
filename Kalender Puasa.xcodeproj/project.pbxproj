@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4192FA62FE3B18D00291FF3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */; };
+		C4192FA72FE3B18D00291FF3 /* NVDate in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0004004DEA4F /* NVDate */; };
 		F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A7E92768619B009EC0CF /* AppDelegate.m */; };
 		F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F42768619C009EC0CF /* Assets.xcassets */; };
 		F109A7F82768619C009EC0CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F62768619C009EC0CF /* LaunchScreen.storyboard */; };
@@ -157,6 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4192FA72FE3B18D00291FF3 /* NVDate in Frameworks */,
+				C4192FA62FE3B18D00291FF3 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +697,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -722,7 +726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.2026.0;
+				MARKETING_VERSION = 1.2026.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -750,7 +754,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -779,7 +783,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.2026.0;
+				MARKETING_VERSION = 1.2026.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
