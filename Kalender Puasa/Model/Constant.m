@@ -151,13 +151,13 @@
                    @"month": @{@"MEI": @26}} forKey:@"Puasa Arafah"];
     
     [f setObject:@{@"category": @"Puasa Asyura & Tasu'a",
-                   @"month": @{@"JULI": @[@24, @25]}} forKey:@"Puasa Asyura & Tasu'a"];
+                   @"month": @{@"JUNI": @[@24, @25]}} forKey:@"Puasa Asyura & Tasu'a"];
 
     [f setObject:@{@"category": @"Puasa Ayyamul Bidh",
                    @"month": @{@"JANUARI": @[@2, @4],
                                @"FEBRUARI": @[@1, @3],
                                @"APRIL": @[@2, @4],
-                               @"MEI": @[@1, @2, @3, @30, @31],
+                               @"MEI": @[@1, @2, @3, @31],
                                @"JUNI": @[@1, @28, @29, @30],
                                @"JULI": @[@28, @30],
                                @"AGUSTUS": @[@26, @28],

@@ -65,13 +65,9 @@ platform :ios do
     )
     push_to_git_remote
 
-    cocoapods(
-      clean_install: true
-    )
-
     gym(
       configuration: "Release",
-      workspace: "#{APP_NAME}.xcworkspace",
+      project: "#{APP_NAME}.xcodeproj",
       export_method: "app-store",
       export_options: {
         provisioningProfiles: { 
