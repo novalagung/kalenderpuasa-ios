@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C4C8FB1A2FCB23F400D793AB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */; };
+		C4C8FB1C2FCB23F400D793AB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */; };
 		C4C8FB1B2FCB23F400D793AB /* NVDate in Frameworks */ = {isa = PBXBuildFile; productRef = F1REBA5E2F5E0004004DEA4F /* NVDate */; };
 		F109A7EA2768619B009EC0CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A7E92768619B009EC0CF /* AppDelegate.m */; };
 		F109A7F52768619C009EC0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109A7F42768619C009EC0CF /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		F109A867276862F4009EC0CF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */; };
 		F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */; };
 		F109A869276862F4009EC0CF /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F109A863276862F4009EC0CF /* Lato-Black.ttf */; };
+		F109A86A2FCB000000000001 /* FontAwesome6Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */; };
 		F109A88627686319009EC0CF /* FastingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86B27686317009EC0CF /* FastingViewController.m */; };
 		F109A88727686319009EC0CF /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86D27686317009EC0CF /* Constant.m */; };
 		F109A88827686319009EC0CF /* RateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F109A86E27686317009EC0CF /* RateHelper.m */; };
@@ -145,6 +147,7 @@
 		F109A861276862F3009EC0CF /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F109A862276862F3009EC0CF /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		F109A863276862F4009EC0CF /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontAwesome6Free-Solid-900.otf"; sourceTree = "<group>"; };
 		F109A86B27686317009EC0CF /* FastingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastingViewController.m; sourceTree = "<group>"; };
 		F109A86D27686317009EC0CF /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		F109A86E27686317009EC0CF /* RateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateHelper.m; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 			files = (
 				C4C8FB1B2FCB23F400D793AB /* NVDate in Frameworks */,
 				C4C8FB1A2FCB23F400D793AB /* FirebaseAnalytics in Frameworks */,
+				C4C8FB1C2FCB23F400D793AB /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +318,7 @@
 		F109A86A276862FA009EC0CF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F109A86A2FCB000000000000 /* FontAwesome6Free-Solid-900.otf */,
 				F109A863276862F4009EC0CF /* Lato-Black.ttf */,
 				F109A85E276862F3009EC0CF /* Lato-Medium.ttf */,
 				F109A860276862F3009EC0CF /* Lobster.ttf */,
@@ -391,6 +396,7 @@
 				F109A7E12768619B009EC0CF /* Sources */,
 				F109A7E22768619B009EC0CF /* Frameworks */,
 				F109A7E32768619B009EC0CF /* Resources */,
+				F1CR4SH2F5E0005004DEA4F /* Upload Crashlytics dSYMs */,
 			);
 			buildRules = (
 			);
@@ -399,6 +405,7 @@
 			name = "Kalender Puasa";
 			packageProductDependencies = (
 				F1REBA5E2F5E0003004DEA4F /* FirebaseAnalytics */,
+				F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */,
 				F1REBA5E2F5E0004004DEA4F /* NVDate */,
 			);
 			productName = "Kalender Puasa";
@@ -488,6 +495,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F1CR4SH2F5E0005004DEA4F /* Upload Crashlytics dSYMs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			name = "Upload Crashlytics dSYMs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\" -gsp \"${PROJECT_DIR}/Kalender Puasa/GoogleService-Info.plist\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXResourcesBuildPhase section */
 		F109A7E32768619B009EC0CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -534,6 +568,7 @@
 				F109A868276862F4009EC0CF /* OpenSans-Italic.ttf in Resources */,
 				F109A858276862CE009EC0CF /* book@2x.png in Resources */,
 				F109A85E276862CE009EC0CF /* language.png in Resources */,
+				F109A86A2FCB000000000001 /* FontAwesome6Free-Solid-900.otf in Resources */,
 				F109A855276862CE009EC0CF /* pull@2x.png in Resources */,
 				F109A84C276862CE009EC0CF /* date-active.png in Resources */,
 				F109A856276862CE009EC0CF /* info.png in Resources */,
@@ -846,6 +881,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				MARKETING_VERSION = 1.2026.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1013,6 +1049,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1REBA5E2F5E0001004DEA4F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		F1CR4SH2F5E0003004DEA4F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1REBA5E2F5E0001004DEA4F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		F1REBA5E2F5E0004004DEA4F /* NVDate */ = {
 			isa = XCSwiftPackageProductDependency;

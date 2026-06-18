@@ -13,6 +13,7 @@
 #import <NVDate.h>
 
 @import FirebaseCore;
+@import FirebaseCrashlytics;
 
 @implementation AppDelegate {
     int spaceToNextFasting;
@@ -36,6 +37,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [FIRApp configure];
+
+#if DEBUG
+    [[FIRCrashlytics crashlytics] setCrashlyticsCollectionEnabled:NO];
+#else
+    [[FIRCrashlytics crashlytics] setCrashlyticsCollectionEnabled:YES];
+#endif
 
     return YES;
 }

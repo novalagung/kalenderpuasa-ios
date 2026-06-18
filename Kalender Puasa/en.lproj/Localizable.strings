@@ -33,21 +33,21 @@
 "haram_reason_tasyrik" = "Fasting is prohibited because it is a day of Tashreeq";
 
 "tap_prohibited_generic" = "Fasting is prohibited on the %@";
-"tap_ramadan" = "Ramadan fasting is obligatory on the %@";
-"tap_sunnah" = "%2$@ is recommended on the %1$@";
+"tap_ramadan" = "The Ramadan fast is obligatory on the %@";
+"tap_sunnah" = "It is Sunnah to observe the %2$@ on the %1$@";
 
 "calendar_event_prohibited_generic" = "Fasting is prohibited";
-"calendar_event_ramadan" = "Ramadan fasting is obligatory";
-"calendar_event_sunnah" = "%@ is recommended";
-"calendar_event_message" = "%@, on %@, %d %@ %d.\n\nPlease follow your local fajr and maghrib times to know when fasting starts and ends.";
+"calendar_event_ramadan" = "The Ramadan fast is obligatory";
+"calendar_event_sunnah" = "It is Sunnah to observe the %@";
+"calendar_event_message" = "%@ on %@, %d %@ %d.\n\nPlease follow your local Fajr and Maghrib times to know when fasting starts and ends";
 
 "notification_prohibited_generic" = "fasting is prohibited";
-"notification_ramadan" = "Ramadan fasting is obligatory";
-"notification_sunnah" = "%@ is recommended";
+"notification_ramadan" = "the Ramadan fast is obligatory";
+"notification_sunnah" = "it is Sunnah to observe the %@";
 "notification_message" = "Reminder: Tomorrow, %@, %d %@ %d, %@";
 
-"update_unavailable_title" = "Update for %d is not available yet";
-"update_unavailable_message" = "Kalender Puasa for %d is not available yet. The app cannot be used until the next update is ready. Please wait.";
+"update_unavailable_title" = "The %d update is not available yet";
+"update_unavailable_message" = "Kalender Puasa for %d is not available yet. The app cannot be used until the next update is ready";
 
 "year_gregorian_format" = "%d Gregorian";
 "year_hijri_range_format" = "%@ - %@ Hijri";

@@ -25,6 +25,11 @@
 #define WIDTH_IPHONE6 375
 #define WIDTH_IPHONE6P 414
 
+static NSString * const FontAwesomeSolidFontName = @"FontAwesome6Free-Solid";
+static NSString * const FontAwesomeCalendarIcon = @"\uf073";
+static NSString * const FontAwesomeLanguageIcon = @"\uf1ab";
+static NSString * const FontAwesomeInfoIcon = @"\uf05a";
+
 @interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate, MonthPickerDelegate, UIAlertViewDelegate> {
     NSMutableDictionary *_fastings;
     NSArray *_fastingBaseColors;
@@ -110,6 +115,7 @@ static char FastingCategoryKey;
         [self prepareFastingViewForIpad];
     }
     [self layoutLanguageButton];
+    [self configureToolbarIconButtons];
 
     long currentMonthIndex = ([[self getDateComponents] month] - 1);
     if ([UIDevice isIPad]) currentMonthIndex = floor(currentMonthIndex / 4);
@@ -148,15 +154,43 @@ static char FastingCategoryKey;
     [btnRateNo setTitle:[Localizer string:@"rate_no_button"] forState:UIControlStateHighlighted];
 }
 
+- (void)configureToolbarIconButtons {
+    [self configureToolbarIconButton:_btnMonth withIcon:FontAwesomeCalendarIcon];
+    [self configureToolbarIconButton:_btnLanguage withIcon:FontAwesomeLanguageIcon];
+    [self configureToolbarIconButton:_btnInfo withIcon:FontAwesomeInfoIcon];
+}
+
+- (void)configureToolbarIconButton:(UIButton *)button withIcon:(NSString *)icon {
+    if (!button) return;
+    
+    [button setImage:nil forState:UIControlStateNormal];
+    [button setImage:nil forState:UIControlStateHighlighted];
+    [button setImage:nil forState:UIControlStateSelected];
+    
+    CGFloat fontSize = [UIDevice isIPad] ? 28. : 27.;
+    UIFont *fontAwesome = [UIFont fontWithName:FontAwesomeSolidFontName size:fontSize];
+    button.titleLabel.font = fontAwesome ?: [UIFont systemFontOfSize:fontSize];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    button.contentEdgeInsets = UIEdgeInsetsZero;
+    button.titleEdgeInsets = UIEdgeInsetsZero;
+    
+    UIColor *normalColor = [UIColor withHexString:@"bfc1c6"];
+    UIColor *activeColor = [UIColor withHexString:@"f58a78"];
+    [button setTitle:icon forState:UIControlStateNormal];
+    [button setTitle:icon forState:UIControlStateHighlighted];
+    [button setTitle:icon forState:UIControlStateSelected];
+    [button setTitleColor:normalColor forState:UIControlStateNormal];
+    [button setTitleColor:activeColor forState:UIControlStateHighlighted];
+    [button setTitleColor:activeColor forState:UIControlStateSelected];
+}
+
 - (void)prepareLanguageButton {
     if (!_btnLanguage) {
         _btnLanguage = [UIButton buttonWithType:UIButtonTypeCustom];
         _btnLanguage.alpha = .8;
         _btnLanguage.backgroundColor = [UIColor clearColor];
-        _btnLanguage.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [_btnLanguage setImage:[UIImage imageNamed:@"language.png"] forState:UIControlStateNormal];
-        [_btnLanguage setImage:[UIImage imageNamed:@"language-active.png"] forState:UIControlStateHighlighted];
-        [_btnLanguage setImage:[UIImage imageNamed:@"language-active.png"] forState:UIControlStateSelected];
         [_btnLanguage addTarget:self action:@selector(doChooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
         UIView *buttonContainer = _btnMonth.superview ?: _contentContainerView;
         [buttonContainer addSubview:_btnLanguage];

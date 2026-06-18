@@ -18,6 +18,7 @@
 		<string>OpenSans-Italic.ttf</string>
 		<string>Lato-Medium.ttf</string>
 		<string>Lato-Black.ttf</string>
+		<string>FontAwesome6Free-Solid-900.otf</string>
 	</array>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main_iPad</string>
