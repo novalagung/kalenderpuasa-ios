@@ -697,7 +697,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -754,7 +754,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 8KLL93A755;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
@@ -932,7 +932,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.29.0;
+				version = 12.15.0;
 			};
 		};
 		F1REBA5E2F5E0002004DEA4F /* XCRemoteSwiftPackageReference "NVDate" */ = {
